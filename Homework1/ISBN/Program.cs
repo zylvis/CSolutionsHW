@@ -55,10 +55,6 @@ namespace ISBN
             // string lastChar = checkDigit == 10 ? "X" : checkDigit.ToString();
             //Console.WriteLine($"ISBN: {number}{lastChar}");
 
-            // Even with the current solution, strNumber should not be 
-            // displayed in foreach
-            // Console.Write(strNumber) -- that will work fine;
-
             if (checkDigit != 10)
             {
                 strNumber.Append(checkDigit.ToString());

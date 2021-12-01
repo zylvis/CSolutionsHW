@@ -62,12 +62,12 @@ namespace ISBN
             if (checkDigit != 10)
             {
                 strNumber.Append(checkDigit.ToString());
-                Console.Write($"ISBN: {strNumber}"); //Typo, should be ISBN            
+                Console.Write($"ISBN: {strNumber}");         
             }
             else
             {
                 strNumber.Append("X");
-                Console.Write($"ISBN: {strNumber}"); //Typo, should be ISBN
+                Console.Write($"ISBN: {strNumber}");
             }
 
             Console.WriteLine();

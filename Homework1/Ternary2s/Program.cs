@@ -22,28 +22,38 @@ namespace Ternary2s
             // int temp = a; a = b; b = temp;
             if (a > b)
             {
-                int c = a + b;
-                a = c - a;
-                b = c - b;
+                int temp = a;
+                a = b;
+                b = temp;
+                //int c = a + b;
+                //a = c - a;
+                //b = c - b;
             }
 
             for (; a <= b; a++)
             {
                 //RK: Search of "2"s could be simplified with
-                // string ternar = converter.DecimalToTernary(a);
-                // foreach(char c in ternar) ...
-                // 
-                //So, we do not need in ToCharArray call and j variable
-                char[] ternaryItem = converter.DecimalToTernary(a).ToCharArray();
-
+                string ternar = converter.DecimalToTernary(a);
                 int count = 0;
-                for (int j = 0; j < ternaryItem.Length; j++)
+                foreach (char c in ternar)
                 {
-                    if (ternaryItem[j] == '2')
+                    if (c == '2')
                     {
                         count++;
                     }
                 }
+                 
+                //So, we do not need in ToCharArray call and j variable
+                //char[] ternaryItem = converter.DecimalToTernary(a).ToCharArray();
+
+                //int count = 0;
+                //for (int j = 0; j < ternaryItem.Length; j++)
+                //{
+                //    if (ternaryItem[j] == '2')
+                //    {
+                //        count++;
+                //    }
+                //}
 
                 //RK: There is no need to store result in rangeTernaryItems
                 // result could be printed immedeately as Console.WriteLine(ternar);
@@ -51,12 +61,11 @@ namespace Ternary2s
                 // keep result in buffer variable to avoid extra computations.
                 if (count == 2)
                 {
-                    rangeTernaryItems.Add(converter.DecimalToTernary(a));
+                    rangeTernaryItems.Add(ternar);
                 }
 
             }
 
-            // RK: Just print result immedeately
             for (int i = 0; i < rangeTernaryItems.Count; i++)
             {
                 Console.WriteLine(rangeTernaryItems[i]);

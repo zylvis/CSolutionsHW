@@ -3,8 +3,6 @@ using System.Text;
 
 namespace Ternary2s
 {
-    //RK: add "internal" before "class" method, it is a good practice
-    // to explicitly set protection modifiers.
     internal class Converter
     {
         public string DecimalToTernary(int n)

@@ -32,7 +32,6 @@ namespace Ternary2s
 
             for (; a <= b; a++)
             {
-                //RK: Search of "2"s could be simplified with
                 string ternar = converter.DecimalToTernary(a);
                 int count = 0;
                 foreach (char c in ternar)
@@ -42,33 +41,11 @@ namespace Ternary2s
                         count++;
                     }
                 }
-                 
-                //So, we do not need in ToCharArray call and j variable
-                //char[] ternaryItem = converter.DecimalToTernary(a).ToCharArray();
 
-                //int count = 0;
-                //for (int j = 0; j < ternaryItem.Length; j++)
-                //{
-                //    if (ternaryItem[j] == '2')
-                //    {
-                //        count++;
-                //    }
-                //}
-
-                //RK: There is no need to store result in rangeTernaryItems
-                // result could be printed immedeately as Console.WriteLine(ternar);
-                // Also, converter.DecimalToTernary is called twice,
-                // keep result in buffer variable to avoid extra computations.
                 if (count == 2)
                 {
-                    rangeTernaryItems.Add(ternar);
+                    Console.WriteLine(ternar);
                 }
-
-            }
-
-            for (int i = 0; i < rangeTernaryItems.Count; i++)
-            {
-                Console.WriteLine(rangeTernaryItems[i]);
             }
         }
     }

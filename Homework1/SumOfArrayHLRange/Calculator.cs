@@ -8,9 +8,7 @@ namespace SumOfArrayHLRange
     {
         public int RangeElementsSum(int[] elements)
         {
-            int largest = 0;
             int largestIndex = 0;
-            int smallest = 0;
             int smallestIndex = 0;
             int sum = 0;
 
@@ -48,8 +46,9 @@ namespace SumOfArrayHLRange
             //RK: The code above is good enough, but could be simplified a bit
             // and we can get indexes at one cycle 
 
-            largest = int.MinValue;
-            smallest = int.MaxValue;
+            int largest = int.MinValue;
+            int smallest = int.MaxValue;
+
             for (int i = 0; i < elements.Length; i++)
             {
                 if (elements[i] >= largest)

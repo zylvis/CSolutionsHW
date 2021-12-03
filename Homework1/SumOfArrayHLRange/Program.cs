@@ -4,7 +4,7 @@ namespace SumOfArrayHLRange
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Calculator calculator = new Calculator();
 

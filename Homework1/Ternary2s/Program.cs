@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+
 
 namespace Ternary2s
 {
     class Program
     {
-        //RK: args is not used and could be dropped. 
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Write("enter int a: ");
             int a = int.Parse(Console.ReadLine());
@@ -14,20 +13,12 @@ namespace Ternary2s
             int b = int.Parse(Console.ReadLine());
             Console.WriteLine();
             Converter converter = new Converter();
-            List<string> rangeTernaryItems = new List<string>();
-
-
-            // RK: This is a smart way for swap, but prefferably
-            // would be to use standard code:
-            // int temp = a; a = b; b = temp;
+            
             if (a > b)
             {
                 int temp = a;
                 a = b;
                 b = temp;
-                //int c = a + b;
-                //a = c - a;
-                //b = c - b;
             }
 
             for (; a <= b; a++)

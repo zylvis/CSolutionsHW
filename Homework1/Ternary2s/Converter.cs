@@ -16,13 +16,6 @@ namespace Ternary2s
                 n /= 3;
             }
 
-            // RK: The transforms below could be replaced with that call
-            //return str.ToString().Reverse().ToString();
-            //
-            // Yeah, this is not "fair" as we have not discussed Linq
-            // yet, but anyway it is simpler. 
-
-
             char[] charArray = str.ToString().ToCharArray();
             Array.Reverse(charArray);
 

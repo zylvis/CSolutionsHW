@@ -8,8 +8,7 @@ namespace Ternary2s
         public string DecimalToTernary(int n)
         {
             StringBuilder str = new StringBuilder();
-            StringBuilder strTernary = new StringBuilder();
-
+            
             while (n != 0)
             {
                 str.Append(n % 3);
@@ -19,12 +18,7 @@ namespace Ternary2s
             char[] charArray = str.ToString().ToCharArray();
             Array.Reverse(charArray);
 
-            for (int i = 0; i < charArray.Length; i++)
-            {
-                strTernary.Append(charArray[i]);
-            }
-
-            return strTernary.ToString();
+            return new string(charArray);
         }
     }
 }

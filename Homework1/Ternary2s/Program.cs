@@ -27,13 +27,13 @@ namespace Ternary2s
                 int count = 0;
                 foreach (char c in ternar)
                 {
-                    if (c == '2')
+                    if (c is '2')
                     {
                         count++;
                     }
                 }
 
-                if (count == 2)
+                if (count is 2)
                 {
                     Console.WriteLine(ternar);
                 }

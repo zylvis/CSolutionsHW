@@ -6,7 +6,9 @@ namespace DiagonalMatrix
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Matrix m = new Matrix(1, 2, 3);
+            Console.WriteLine(m.Size);
+            
         }
     }
 }

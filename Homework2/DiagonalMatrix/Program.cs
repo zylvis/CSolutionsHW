@@ -4,29 +4,30 @@ namespace DiagonalMatrix
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Matrix m = new Matrix(2, 9, 45);
-            Matrix m2 = new Matrix();
+            Matrix matrix = new Matrix(2, 9, 45);
+            Matrix matrix2 = new Matrix();
 
             Console.Write($"\"m\" elements:");
-            foreach (var item in m.Elements)
+            foreach (var item in matrix.DiagonalElements)
             {
                 Console.Write($"*{item}");
             }
             Console.WriteLine();
-            Console.WriteLine($"Size: {m.Size}");
-            Console.WriteLine($"Sum: {m.Track()}");
+            Console.WriteLine($"Size: {matrix.Size}");
+            Console.WriteLine($"Sum: {matrix.Track()}");
 
             Console.Write($"\"m2\" elements:");
-            foreach (var item in m2.Elements)
+            foreach (var item in matrix2.DiagonalElements)
             {
                 Console.Write($"*{item}");
             }
             Console.WriteLine();
-            Console.WriteLine($"Size: {m2.Size}");
-            Console.WriteLine($"Sum: {m2.Track()}");
+            Console.WriteLine($"Size: {matrix2.Size}");
+            Console.WriteLine($"Sum: {matrix2.Track()}");
 
+            Console.WriteLine(matrix[2, 2]);
 
         }
     }

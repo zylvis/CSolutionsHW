@@ -7,13 +7,15 @@ namespace DiagonalMatrix
         static void Main()
         {
             Matrix matrix = new Matrix(2, 9, 45);
-            Matrix matrix2 = new Matrix();
+            Matrix matrix2 = new Matrix(2, 3, 45);
 
             Console.Write($"\"m\" elements:");
             foreach (var item in matrix.DiagonalElements)
             {
                 Console.Write($"*{item}");
             }
+            
+
             Console.WriteLine();
             Console.WriteLine($"Size: {matrix.Size}");
             Console.WriteLine($"Sum: {matrix.Track()}");
@@ -27,7 +29,11 @@ namespace DiagonalMatrix
             Console.WriteLine($"Size: {matrix2.Size}");
             Console.WriteLine($"Sum: {matrix2.Track()}");
 
-            Console.WriteLine(matrix[2, 2]);
+            Console.WriteLine($"Indexer: {matrix[2, 2]}");
+
+            Console.WriteLine(matrix.Equals(matrix2));
+            
+            Console.WriteLine(matrix.ToString());
 
         }
     }

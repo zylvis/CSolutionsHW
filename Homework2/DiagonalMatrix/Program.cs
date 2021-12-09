@@ -7,14 +7,14 @@ namespace DiagonalMatrix
         static void Main()
         {
             Matrix matrix = new Matrix(2, 9, 45);
-            Matrix matrix2 = new Matrix(2, 3, 45);
+            Matrix matrix2 = new Matrix(2, 9, 45, 63);
 
             Console.Write($"\"m\" elements:");
             foreach (var item in matrix.DiagonalElements)
             {
                 Console.Write($"*{item}");
             }
-            
+
 
             Console.WriteLine();
             Console.WriteLine($"Size: {matrix.Size}");
@@ -32,8 +32,10 @@ namespace DiagonalMatrix
             Console.WriteLine($"Indexer: {matrix[2, 2]}");
 
             Console.WriteLine(matrix.Equals(matrix2));
-            
-            Console.WriteLine(matrix.ToString());
+
+            Console.WriteLine(matrix2.ToString());
+
+            Console.WriteLine(String.Join(",", matrix.AddMatrix(matrix2)));
 
         }
     }

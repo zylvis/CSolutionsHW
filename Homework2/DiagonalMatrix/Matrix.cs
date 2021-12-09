@@ -15,7 +15,6 @@ namespace DiagonalMatrix
             _size = elements.Length;
         }
 
-
         public int[] DiagonalElements => _diagonalElements;
         public int Size => _size;
 
@@ -42,9 +41,12 @@ namespace DiagonalMatrix
             return String.Join(",", DiagonalElements);
         }
 
-
         public override bool Equals(object obj)
         {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
             Matrix m = (Matrix)obj;
             return (Size == m.Size) && (String.Join(",", DiagonalElements) == m.ToString());
         }

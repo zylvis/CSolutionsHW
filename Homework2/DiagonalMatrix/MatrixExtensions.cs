@@ -28,6 +28,10 @@ namespace DiagonalMatrix
                 {
                     result[i] = a.DiagonalElements[i] + 0;
                 }
+                if (a == b)
+                {
+                    result[i] = a.DiagonalElements[i] + b.DiagonalElements[i];
+                }
             }
 
 

@@ -15,7 +15,6 @@ namespace DiagonalMatrix
                 Console.Write($"*{item}");
             }
 
-
             Console.WriteLine();
             Console.WriteLine($"Size: {matrix.Size}");
             Console.WriteLine($"Sum: {matrix.Track()}");
@@ -25,6 +24,7 @@ namespace DiagonalMatrix
             {
                 Console.Write($"*{item}");
             }
+
             Console.WriteLine();
             Console.WriteLine($"Size: {matrix2.Size}");
             Console.WriteLine($"Sum: {matrix2.Track()}");

@@ -10,7 +10,6 @@ namespace DiagonalMatrix
             var practicalLesson = new PracticalLesson("some description", "task", "solution link --->");
             var training = new Training(string.Empty, lecture, practicalLesson);
 
-
             foreach (var item in training.Add())
             {
                 Console.WriteLine($"{item.Key.Topic} - {item.Key.DescriptionText} : {item.Value.TaskCondition} - {item.Value.Solution} - {item.Value.DescriptionText}");
@@ -25,8 +24,5 @@ namespace DiagonalMatrix
                 Console.WriteLine($"{item.Key.Topic} - {item.Key.DescriptionText} : {item.Value.TaskCondition} - {item.Value.Solution} - {item.Value.DescriptionText}");
             }
         }
-
-
-
     }
 }

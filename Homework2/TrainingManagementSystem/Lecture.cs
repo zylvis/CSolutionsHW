@@ -16,7 +16,5 @@ namespace TrainingManagementSystem
             DescriptionText = descriptionText;
             Topic = topic;
         }
-
-
     }
 }

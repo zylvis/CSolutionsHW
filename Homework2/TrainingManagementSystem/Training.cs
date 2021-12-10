@@ -19,15 +19,31 @@ namespace TrainingManagementSystem
         }
         public string? DescriptionText { get; set; }
 
-        public Lecture[] Lectures { get; set; }
+        public Dictionary<Lecture, PracticalLesson> SetOfObjects { get; set; } = new Dictionary<Lecture, PracticalLesson>();
 
-        public IEnumerable<PracticalLesson> PracticalLessons { get; set; }
-
-        public void Add()
+        public Dictionary<Lecture, PracticalLesson> Add()
         {
-           Lectures = (Lecture[])Lectures.Append(_lecture);   
-
+            if (_lecture != null)
+            {
+                SetOfObjects.Add(_lecture, _practicalLesson);
+            }
+            return SetOfObjects;
         }
 
+        public bool IsPractical()
+        {
+            if (SetOfObjects.ContainsKey(_lecture))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public Training Clone()
+        {
+            Training training = new(this._descriptionText,
+                               _lecture, _practicalLesson);
+            return training;
+        }
     }
 }

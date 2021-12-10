@@ -36,7 +36,6 @@ namespace DiagonalMatrix
             Console.WriteLine(matrix2.ToString());
 
             Console.WriteLine(String.Join(",", matrix.AddMatrix(matrix2)));
-
         }
     }
 }

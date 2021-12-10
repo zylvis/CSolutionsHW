@@ -19,13 +19,13 @@ namespace TrainingManagementSystem
         }
         public string? DescriptionText { get; set; }
 
-        public IEnumerable<Lecture> Lectures { get; set; }
+        public Lecture[] Lectures { get; set; }
 
         public IEnumerable<PracticalLesson> PracticalLessons { get; set; }
 
-        public void Add(Lecture lecture)
+        public void Add()
         {
-            Lectures.Append(lecture);
+           Lectures = (Lecture[])Lectures.Append(_lecture);   
 
         }
 

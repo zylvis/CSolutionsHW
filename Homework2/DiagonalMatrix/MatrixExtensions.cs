@@ -8,8 +8,6 @@ namespace DiagonalMatrix
     {
         public static int[] AddMatrix(this Matrix a, Matrix b)
         {
-           
-
             if (a.Size < b.Size)
             {
                 Matrix temp = a;
@@ -33,9 +31,6 @@ namespace DiagonalMatrix
                     result[i] = a.DiagonalElements[i] + b.DiagonalElements[i];
                 }
             }
-
-
-
             return result;
         }
     }

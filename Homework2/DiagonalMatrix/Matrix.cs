@@ -22,7 +22,7 @@ namespace DiagonalMatrix
         {
             get
             {
-                if (i < 0 && j < 0 || i >= Size || j >= Size)
+                if (i < 0 || j < 0 || i >= Size || j >= Size)
                 {
                     throw new Exception("Out of range SquareMatrix indexes");
                 }

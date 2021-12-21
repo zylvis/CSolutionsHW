@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DiagonalMatrix
 {
@@ -48,7 +49,8 @@ namespace DiagonalMatrix
                 return false;
             }
             Matrix m = (Matrix)obj;
-            return (Size == m.Size) && (String.Join(",", DiagonalElements) == m.ToString());
+
+            return (Size == m.Size && DiagonalElements.SequenceEqual(m.DiagonalElements));
         }
 
         public int Track()

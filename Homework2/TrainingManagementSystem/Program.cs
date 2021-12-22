@@ -6,9 +6,9 @@ namespace DiagonalMatrix
     {
         public static void Main()
         {
-            var lecture = new Lecture(string.Empty, "topic");
-            var practicalLesson = new PracticalLesson("some description", "task", "solution link --->");
-            var training = new Training(string.Empty, lecture, practicalLesson);
+            var lecture = new Lecture("some lecture description", "topic");
+            var practicalLesson = new PracticalLesson("some practical description", "task", "solution link --->");
+            var training = new Training("some trainingl description", lecture, practicalLesson);
 
             foreach (var item in training.Add())
             {

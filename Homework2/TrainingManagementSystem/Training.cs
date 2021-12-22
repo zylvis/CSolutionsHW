@@ -8,12 +8,12 @@ namespace TrainingManagementSystem
 {
     internal class Training
     {
-        private string _descriptionText;
+        private Description _description;
         private Lecture _lecture;
         private PracticalLesson _practicalLesson;
-        public Training(string description, Lecture lecture, PracticalLesson practicalLesson)
+        public Training(Description description, Lecture lecture, PracticalLesson practicalLesson)
         {
-            _descriptionText = description;
+            _description = description;
             _lecture = lecture;
             _practicalLesson = practicalLesson;
         }
@@ -21,11 +21,11 @@ namespace TrainingManagementSystem
 
         public Dictionary<Lecture, PracticalLesson> SetOfObjects { get; set; } = new Dictionary<Lecture, PracticalLesson>();
 
-        public Dictionary<Lecture, PracticalLesson> Add()
+        public Dictionary<Lecture, PracticalLesson> Add(Lecture lecture, PracticalLesson practicalLesson)
         {
             if (_lecture != null)
             {
-                SetOfObjects.Add(_lecture, _practicalLesson);
+                SetOfObjects.Add(lecture, practicalLesson);
             }
             return SetOfObjects;
         }
@@ -41,7 +41,7 @@ namespace TrainingManagementSystem
 
         public Training Clone()
         {
-            Training training = new(this._descriptionText,
+            Training training = new(this._description,
                                _lecture, _practicalLesson);
             return training;
         }

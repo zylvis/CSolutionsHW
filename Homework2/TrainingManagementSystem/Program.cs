@@ -6,6 +6,7 @@ namespace DiagonalMatrix
     {
         public static void Main()
         {
+            Description description = new Description("some lecture descroption", "some practical description", "some");
             var lecture = new Lecture("some lecture description", "topic");
             var practicalLesson = new PracticalLesson("some practical description", "task", "solution link --->");
             var training = new Training("some trainingl description", lecture, practicalLesson);

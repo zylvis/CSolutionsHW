@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    internal class Training
+    internal class Training : Description
     {
-        private Description _description;
+        
         private Lecture _lecture;
         private PracticalLesson _practicalLesson;
-        public Training(Description description, Lecture lecture, PracticalLesson practicalLesson)
+        public Training(Lecture lecture, PracticalLesson practicalLesson, string lectureDescription, string practicalDescription, string trainingDescription) 
+            : base(lectureDescription, practicalDescription, trainingDescription)
         {
-            _description = description;
-            _lecture = lecture;
-            _practicalLesson = practicalLesson;
+            this.LectureDescription = lectureDescription;
+            this.PracticalDescription = practicalDescription;   
+            this.TrainingDescription = trainingDescription;
+            this._lecture = lecture;
+            this._practicalLesson = practicalLesson;
         }
-        public string? DescriptionText { get; set; }
-
+        
         public Dictionary<Lecture, PracticalLesson> SetOfObjects { get; set; } = new Dictionary<Lecture, PracticalLesson>();
 
         public Dictionary<Lecture, PracticalLesson> Add(Lecture lecture, PracticalLesson practicalLesson)
@@ -41,8 +43,7 @@ namespace TrainingManagementSystem
 
         public Training Clone()
         {
-            Training training = new(this._description,
-                               _lecture, _practicalLesson);
+            Training training = new(_lecture, _practicalLesson, this.LectureDescription, this.PracticalDescription, this.TrainingDescription);
             return training;
         }
     }

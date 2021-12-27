@@ -6,24 +6,32 @@ namespace DiagonalMatrix
     {
         public static void Main()
         {
-            Description description = new Description("some lecture descroption", "some practical description", "some");
-            var lecture = new Lecture("some lecture description", "topic");
-            var practicalLesson = new PracticalLesson("some practical description", "task", "solution link --->");
-            var training = new Training("some trainingl description", lecture, practicalLesson);
+            var lecture = new Lecture("Lecture topic");
+            var practicalLesson = new PracticalLesson("task", "solution link --->");
+            var training = new Training(lecture, practicalLesson, "some lecture description", "some practical description", "some training description");
+                        
+            Training training2 = training.Clone();
 
-            foreach (var item in training.Add())
+            training.Add(lecture);
+            training.Add(practicalLesson);
+
+            foreach (var item in training.SetOfObjects)
             {
-                Console.WriteLine($"{item.Key.Topic} - {item.Key.DescriptionText} : {item.Value.TaskCondition} - {item.Value.Solution} - {item.Value.DescriptionText}");
+                if (item is Lecture)
+                {
+                    Lecture o = (Lecture)item;
+                    Console.WriteLine(o.Topic);
+                }
+                if (item is PracticalLesson)
+                {
+                    PracticalLesson o = (PracticalLesson)item;
+                    Console.WriteLine(o.Solution);
+                }
             }
 
             Console.WriteLine(training.IsPractical());
 
-            Training training2 = training.Clone();
-
-            foreach (var item in training2.Add())
-            {
-                Console.WriteLine($"{item.Key.Topic} - {item.Key.DescriptionText} : {item.Value.TaskCondition} - {item.Value.Solution} - {item.Value.DescriptionText}");
-            }
+            Console.WriteLine(training2.LectureDescription);
         }
     }
 }

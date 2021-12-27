@@ -8,7 +8,7 @@ namespace TrainingManagementSystem
 {
     internal class Lecture
     {
-        public string? Topic { get; set; }
+        public string Topic { get; set; }
 
         public Lecture(string topic) 
         {

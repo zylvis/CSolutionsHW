@@ -1,6 +1,6 @@
 ﻿using TrainingManagementSystem;
 
-namespace DiagonalMatrix
+namespace TrainingManagementSystem
 {
     class Program
     {
@@ -19,13 +19,13 @@ namespace DiagonalMatrix
             {
                 if (item is Lecture)
                 {
-                    Lecture o = (Lecture)item;
-                    Console.WriteLine(o.Topic);
+                    Lecture temp = (Lecture)item;
+                    Console.WriteLine(temp.Topic);
                 }
                 if (item is PracticalLesson)
                 {
-                    PracticalLesson o = (PracticalLesson)item;
-                    Console.WriteLine(o.Solution);
+                    PracticalLesson temp = (PracticalLesson)item;
+                    Console.WriteLine(temp.Solution);
                 }
             }
 

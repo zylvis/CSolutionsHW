@@ -6,9 +6,9 @@ namespace DiagonalMatrix
     {
         public static void Main()
         {
-            var lecture = new Lecture("Lecture topic");
-            var practicalLesson = new PracticalLesson("task", "solution link --->");
-            var training = new Training(lecture, practicalLesson, "some lecture description", "some practical description", "some training description");
+            var lecture = new Lecture("some lecture description", "Lecture topic");
+            var practicalLesson = new PracticalLesson("some practical description", "task", "solution link --->");
+            var training = new Training("some training description", lecture, practicalLesson);
                         
             Training training2 = training.Clone();
 
@@ -31,7 +31,7 @@ namespace DiagonalMatrix
 
             Console.WriteLine(training.IsPractical());
 
-            Console.WriteLine(training2.LectureDescription);
+            Console.WriteLine(training2.DescriptionText);
         }
     }
 }

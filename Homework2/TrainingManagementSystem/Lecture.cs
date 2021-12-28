@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    internal class Lecture
+    internal class Lecture:Description
     {
         public string Topic { get; set; }
 
-        public Lecture(string topic) 
+        public Lecture(string descriptionText, string topic) : base(descriptionText)
         {
             Topic = topic;
         }

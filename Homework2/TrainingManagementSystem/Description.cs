@@ -8,15 +8,11 @@ namespace TrainingManagementSystem
 {
     abstract class Description
     {
-        public string LectureDescription { get; set; }
-        public string PracticalDescription { get; set; }
-        public string TrainingDescription { get; set; }
-
-        public Description(string lectureDescription, string practicalDescription, string trainingDescription)
+        public string DescriptionText { get; set; }
+       
+        public Description(string descriptionText)
         {
-            LectureDescription = lectureDescription;
-            PracticalDescription = practicalDescription;
-            TrainingDescription = trainingDescription;
+            DescriptionText = descriptionText;
         }
     }
 }

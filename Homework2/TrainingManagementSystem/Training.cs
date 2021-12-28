@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrainingManagementSystem.Extensions;
 
 namespace TrainingManagementSystem
 {
     internal class Training : Description
     {
         private const int MAX_SET_NUMBER = 4;
-        int existingSetElemenets;
+        int existingSetElements;
         private Lecture _lecture;
         private PracticalLesson _practicalLesson;
-        public Training(Lecture lecture, PracticalLesson practicalLesson, string lectureDescription, string practicalDescription, string trainingDescription)
-            : base(lectureDescription, practicalDescription, trainingDescription)
+
+        public Training(string descriptionText, Lecture lecture, PracticalLesson practicalLesson)
+            : base(descriptionText)
         {
-            this.LectureDescription = lectureDescription;
-            this.PracticalDescription = practicalDescription;
-            this.TrainingDescription = trainingDescription;
             this._lecture = lecture;
             this._practicalLesson = practicalLesson;
-            this.existingSetElemenets = 0;
+            this.existingSetElements = 0;
         }
 
         public object[] SetOfObjects { get; set; } = new object[MAX_SET_NUMBER];
@@ -31,41 +28,26 @@ namespace TrainingManagementSystem
 
         public void Add(object obj)
         {
-            if (existingSetElemenets < MAX_SET_NUMBER)
+            if (existingSetElements < MAX_SET_NUMBER)
             {
                 if (obj is Lecture)
                 {
-                    SetOfObjects[existingSetElemenets] = obj;
-                    existingSetElemenets++;
+                    SetOfObjects[existingSetElements] = obj;
+                    existingSetElements++;
 
                 }
                 else if (obj is PracticalLesson)
                 {
-                    SetOfObjects[existingSetElemenets] = obj;
-                    existingSetElemenets++;
+                    SetOfObjects[existingSetElements] = obj;
+                    existingSetElements++;
                 }
             }
 
             else
             {
-                throw new Exception("Can't hire more");
-
+                throw new Exception("Can't add more");
             }
-
         }
-
-
-        //public Dictionary<Lecture, PracticalLesson> SetOfObjects { get; set; } = new Dictionary<Lecture, PracticalLesson>();
-
-
-        //public Dictionary<Lecture, PracticalLesson> Add(Lecture lecture, PracticalLesson practicalLesson)
-        //{
-        //    if (_lecture != null)
-        //    {
-        //        SetOfObjects.Add(lecture, practicalLesson);
-        //    }
-        //    return SetOfObjects;
-        //}
 
         public bool IsPractical()
         {
@@ -78,7 +60,7 @@ namespace TrainingManagementSystem
 
         public Training Clone()
         {
-            Training training = new(_lecture, _practicalLesson, this.LectureDescription, this.PracticalDescription, this.TrainingDescription);
+            Training training = new(this.DescriptionText, _lecture, _practicalLesson);
             return training;
         }
     }

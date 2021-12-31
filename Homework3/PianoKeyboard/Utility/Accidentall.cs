@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace PianoKeyboard
 {
-    enum Accidentall
+    public static class Accidentall
     {
-      NoSign, Sharp, Flat
+        public const string Sharp = "#";
+        public const string Flat = "b";
+        public const string NoSign = "";
     }
 }

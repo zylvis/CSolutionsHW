@@ -9,26 +9,21 @@ namespace PianoKeyboard
 {
     public struct Key
     {
-        public Key(Note note, string accidental, int octave)
+        public Key(object note, string accidentall, object octave)
         {
-            Note = note;
-            Accidental = accidental;
-            Octave = octave;
-
+            this.Note = note.ToString();
+            this.Accidental = accidentall;
+            this.Octave = (int)octave;
         }
 
         public string Note { get; set; }
         public string Accidental { get; set; }
         public int Octave { get; set; }
 
-
         public override string ToString()
         {
-
-
-            return base.ToString();
+            return $"{Note}{Accidental} ({Octave.ToString()})";
+            
         }
-
-
     }
 }

@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using PianoKeyboard;
+
+Key c = new Key(Note.C, Accidentall.Sharp, Octave.First);
+Console.WriteLine(c);

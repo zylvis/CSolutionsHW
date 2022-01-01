@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PianoKeyboard;
+using PianoKeyboard.Utility;
 
 namespace PianoKeyboard
 {
@@ -23,23 +24,68 @@ namespace PianoKeyboard
         public override string ToString()
         {
             return $"{Note}{Accidental} ({Octave.ToString()})";
-            
+
         }
 
         public override bool Equals(object obj)
-        { 
+        {
             Key k = (Key)obj;
+            string enharmonic = Note + Accidental + k.Note + k.Accidental;
 
-            //Check for null and compare run-time types.
             if ((obj == null) || !this.GetType().Equals(obj.GetType()))
             {
                 return false;
             }
-            else
+            else if (Note == k.Note && Accidental == k.Accidental)
             {
-               
-                return (Note == k.Note) && (Accidental ==  k.Accidental);
+
+                return true;
             }
+
+            switch (enharmonic)
+            {
+                case SD.ASharpBflat:
+
+                    return true;
+
+                case SD.BCflat:
+
+                    return true;
+
+                case SD.BSharpC:
+
+                    return true;
+
+                case SD.CSharpDflat:
+
+                    return true;
+                case SD.DSharpEb:
+
+                    return true;
+                case SD.EFflat:
+
+                    return true;
+
+                case SD.ESharpF:
+
+                    return true;
+                case SD.FSharpGflat:
+
+                    return true;
+
+                case SD.GSharpAflat:
+
+                    return true;
+
+                default:
+                    return false;
+            }
+
+
+
+
+
+
         }
     }
 }

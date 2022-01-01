@@ -1,8 +1,14 @@
 ﻿using PianoKeyboard;
+using PianoKeyboard.Utility;
 
-Key c = new Key(Note.C, Accidentall.Sharp, Octave.First);
-Console.WriteLine(c);
+Key a = new Key(Note.A, Accidentall.Sharp, Octave.First);
+Console.WriteLine(a);
 
-Key d = new Key(Note.C, Accidentall.Sharp, Octave.Fifth);
+Key b = new Key(Note.B, Accidentall.Flat, Octave.First);
 
-Console.WriteLine(c.Equals(d));
+Console.WriteLine(b);
+
+
+Console.Write("IsEnharmonic: ");
+Console.Write(a.Equals(b));
+Console.WriteLine();

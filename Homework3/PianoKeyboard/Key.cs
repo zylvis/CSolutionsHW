@@ -25,5 +25,21 @@ namespace PianoKeyboard
             return $"{Note}{Accidental} ({Octave.ToString()})";
             
         }
+
+        public override bool Equals(object obj)
+        { 
+            Key k = (Key)obj;
+
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+               
+                return (Note == k.Note) && (Accidental ==  k.Accidental);
+            }
+        }
     }
 }

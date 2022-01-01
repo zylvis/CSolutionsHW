@@ -24,7 +24,6 @@ namespace PianoKeyboard
         public override string ToString()
         {
             return $"{Note}{Accidental} ({Octave.ToString()})";
-
         }
 
         public override bool Equals(object obj)
@@ -45,47 +44,35 @@ namespace PianoKeyboard
             switch (enharmonic)
             {
                 case SD.ASharpBflat:
-
                     return true;
 
                 case SD.BCflat:
-
                     return true;
 
                 case SD.BSharpC:
-
                     return true;
 
                 case SD.CSharpDflat:
-
                     return true;
+
                 case SD.DSharpEb:
-
                     return true;
-                case SD.EFflat:
 
+                case SD.EFflat:
                     return true;
 
                 case SD.ESharpF:
-
                     return true;
-                case SD.FSharpGflat:
 
+                case SD.FSharpGflat:
                     return true;
 
                 case SD.GSharpAflat:
-
                     return true;
 
                 default:
                     return false;
             }
-
-
-
-
-
-
         }
     }
 }

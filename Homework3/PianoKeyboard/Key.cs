@@ -8,7 +8,7 @@ using PianoKeyboard.Utility;
 
 namespace PianoKeyboard
 {
-    public struct Key
+    public struct Key: IComparable<Key>
     {
         public Key(object note, string accidentall, object octave)
         {
@@ -17,13 +17,13 @@ namespace PianoKeyboard
             this.Octave = (int)octave;
         }
 
-        public string Note { get; set; }
+        public string? Note { get; set; }
         public string Accidental { get; set; }
         public int Octave { get; set; }
 
         public override string ToString()
         {
-            return $"{Note}{Accidental} ({Octave.ToString()})";
+            return $"{Note}{Accidental} ({Octave})";
         }
 
         public override bool Equals(object obj)
@@ -43,36 +43,45 @@ namespace PianoKeyboard
 
             switch (enharmonic)
             {
-                case SD.ASharpBflat:
+                case ENotes.ASharpBflat:
                     return true;
 
-                case SD.BCflat:
+                case ENotes.BCflat:
                     return true;
 
-                case SD.BSharpC:
+                case ENotes.BSharpC:
                     return true;
 
-                case SD.CSharpDflat:
+                case ENotes.CSharpDflat:
                     return true;
 
-                case SD.DSharpEb:
+                case ENotes.DSharpEb:
                     return true;
 
-                case SD.EFflat:
+                case ENotes.EFflat:
                     return true;
 
-                case SD.ESharpF:
+                case ENotes.ESharpF:
                     return true;
 
-                case SD.FSharpGflat:
+                case ENotes.FSharpGflat:
                     return true;
 
-                case SD.GSharpAflat:
+                case ENotes.GSharpAflat:
                     return true;
 
                 default:
                     return false;
             }
+        }
+
+        public int CompareTo(Key other)
+        {
+            if (Note == other.Note && Accidental == other.Accidental && Accidental == other.Accidental)
+            {
+                return 1;
+            }
+            return 0;
         }
     }
 }

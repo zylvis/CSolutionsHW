@@ -8,14 +8,15 @@ Console.WriteLine("Hello, World!");
 
 Stack.Stack<string> stack = new();
 
-stack.Push("bybis");
-stack.Push("byraj");
+stack.Push("one");
+stack.Push("two");
+stack.Push("three");
+stack.Pop();
 
 
-
-for (int i = 0; i < 2; i++)
+foreach (var item in stack)
 {
-    Console.WriteLine(stack[i]);
+    Console.WriteLine(item);
 }
 
 

@@ -36,6 +36,14 @@ namespace Stack
             return items[size];
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = size - 1; i >= 0; i--)
+            {
+                yield return items[i];
+            }
+        }
+        
         public T this[int index]
         {
             get => items[index];

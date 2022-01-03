@@ -10,5 +10,6 @@ namespace Stack
     {
         void Push(T value);
         T Pop();
+       
     }
 }

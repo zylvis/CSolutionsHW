@@ -12,13 +12,13 @@ namespace Stack
         T[] items = new T[0];
         int size;
 
-        
+
         public void Push(T value)
         {
             if (size == items.Count())
             {
-                int newlength = size == 0 ? 1 : size +1;
-                T[] newarray = new T[newlength];  
+                int newlength = size == 0 ? 1 : size + 1;
+                T[] newarray = new T[newlength];
                 items.CopyTo(newarray, 0);
                 items = newarray;
             }
@@ -36,6 +36,8 @@ namespace Stack
             return items[size];
         }
 
+        
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = size - 1; i >= 0; i--)
@@ -43,7 +45,9 @@ namespace Stack
                 yield return items[i];
             }
         }
-        
+
+
+
         public T this[int index]
         {
             get => items[index];

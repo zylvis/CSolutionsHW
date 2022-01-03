@@ -10,12 +10,11 @@ namespace Stack
     public static class Extensions
     {
         public static Stack<T> Reverse<T>(this Stack.Stack<T> stack)
-        {            
+        {
             stack.items.Reverse();
-            var reverseStack = stack;
-            return reverseStack;
+            return stack;
         }
 
-        
+
     }
 }

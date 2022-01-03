@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    internal class Stack<T> : IStack<T>
+    public class Stack<T> : IStack<T>
     {
-        T[] items = new T[0];
-        int size;
+        public T[] items = new T[0];
+        public int size;
 
 
         public void Push(T value)
@@ -35,8 +35,7 @@ namespace Stack
             size--;
             return items[size];
         }
-
-        
+              
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -45,8 +44,6 @@ namespace Stack
                 yield return items[i];
             }
         }
-
-
 
         public T this[int index]
         {

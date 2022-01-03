@@ -11,7 +11,9 @@ Stack.Stack<string> stack = new();
 stack.Push("one");
 stack.Push("two");
 stack.Push("three");
-stack.Pop();
+var soething = stack.Pop();
+
+
 
 
 foreach (var item in stack)
@@ -19,5 +21,10 @@ foreach (var item in stack)
     Console.WriteLine(item);
 }
 
+stack.Reverse();
 
+foreach (var item in stack)
+{
+    Console.WriteLine(item);
+}
 

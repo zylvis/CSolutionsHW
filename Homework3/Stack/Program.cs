@@ -1,29 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Stack;
-
-Console.WriteLine("Hello, World!");
-
-
+﻿using Stack;
 
 Stack.Stack<string> stack = new();
 
 stack.Push("one");
 stack.Push("two");
 stack.Push("three");
-var soething = stack.Pop();
+stack.Push("four");
+stack.Pop();
 
-
-
+Console.WriteLine("Stack: ");
 
 foreach (var item in stack)
 {
     Console.WriteLine(item);
 }
 
-stack.Reverse();
+Console.WriteLine("Stack reverse: ");
 
-foreach (var item in stack)
+
+foreach (var item in stack.Reverse())
 {
     Console.WriteLine(item);
 }

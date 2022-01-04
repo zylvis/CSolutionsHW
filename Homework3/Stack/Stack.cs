@@ -35,7 +35,7 @@ namespace Stack
             size--;
             return items[size];
         }
-              
+
 
         public IEnumerator<T> GetEnumerator()
         {

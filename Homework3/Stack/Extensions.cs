@@ -11,15 +11,13 @@ namespace Stack
     {
         public static Stack<T> Reverse<T>(this Stack.Stack<T> stack)
         {
-            Stack<T> reverseStack = new Stack<T> ();
+            Stack<T> reverseStack = new Stack<T>();
             while (stack.size != 0)
             {
-                reverseStack.Push (stack.Pop ());
+                reverseStack.Push(stack.Pop());
             }
-            
+
             return reverseStack;
         }
-
-        
     }
 }

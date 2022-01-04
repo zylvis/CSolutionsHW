@@ -9,47 +9,47 @@ namespace Stack
 {
     public class Stack<T> : IStack<T>
     {
-        public T[] items = new T[0];
-        public int size;
+        public T[] Items { get; set; } = new T[0];
+        public int Size { get; set; }   
 
 
         public void Push(T value)
         {
-            if (size == items.Count())
+            if (Size == Items.Count())
             {
-                int newlength = size == 0 ? 1 : size + 1;
+                int newlength = Size == 0 ? 1 : Size + 1;
                 T[] newarray = new T[newlength];
-                items.CopyTo(newarray, 0);
-                items = newarray;
+                Items.CopyTo(newarray, 0);
+                Items = newarray;
             }
-            items[size] = value;
-            size++;
+            Items[Size] = value;
+            Size++;
         }
 
         public T Pop()
         {
-            if (size == 0)
+            if (Size == 0)
             {
                 throw new InvalidOperationException("Empty");
             }
-            size--;
-            return items[size];
+            Size--;
+            return Items[Size];
         }
 
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = size - 1; i >= 0; i--)
+            for (int i = Size - 1; i >= 0; i--)
             {
-                yield return items[i];
+                yield return Items[i];
             }
         }
 
 
         public T this[int index]
         {
-            get => items[index];
-            set => items[index] = value;
+            get => Items[index];
+            set => Items[index] = value;
         }
 
     }

@@ -1,13 +1,14 @@
 ﻿using Stack;
+try
+{
 
 Stack.Stack<string> stack = new();
 
-//stack.Push("one");
-//stack.Push("two");
-//stack.Push("three");
-//stack.Push("four");
-try
-{
+    stack.Push("one");
+    stack.Push("two");
+    stack.Push("three");
+    stack.Push("four");
+
     stack.Pop();
 
     Console.WriteLine("Stack: ");

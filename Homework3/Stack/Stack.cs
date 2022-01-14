@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    public class Stack<T> : IStack<T>
+    public class Stack<T> : IStack<T>, IEnumerable
     {
         public T[] Items { get; set; } = new T[0];
         public int Size { get; set; }   
@@ -15,7 +15,7 @@ namespace Stack
 
         public void Push(T value)
         {
-            if (Size == Items.Count())
+            if (Size == Items.Length)
             {
                 int newlength = Size == 0 ? 1 : Size + 1;
                 T[] newarray = new T[newlength];
@@ -36,16 +36,11 @@ namespace Stack
             return Items[Size];
         }
 
-
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            for (int i = Size - 1; i >= 0; i--)
-            {
-                yield return Items[i];
-            }
+            return Items.GetEnumerator();
         }
 
-       
         public T this[int index]
         {
             get => Items[index];

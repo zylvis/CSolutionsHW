@@ -10,6 +10,6 @@ namespace Stack
     {
         void Push(T value);
         T Pop();
-        public IEnumerator<T> GetEnumerator();
+        //public IEnumerator<T> GetEnumerator();
     }
 }

@@ -2,24 +2,29 @@
 
 Stack.Stack<string> stack = new();
 
-stack.Push("one");
-stack.Push("two");
-stack.Push("three");
-stack.Push("four");
-stack.Pop();
-
-Console.WriteLine("Stack: ");
-
-foreach (var item in stack)
+//stack.Push("one");
+//stack.Push("two");
+//stack.Push("three");
+//stack.Push("four");
+try
 {
-    Console.WriteLine(item);
+    stack.Pop();
+
+    Console.WriteLine("Stack: ");
+
+    foreach (var item in stack)
+    {
+        Console.WriteLine(item);
+    }
+
+    Console.WriteLine("Stack reverse: ");
+
+    foreach (var item in stack.Reverse())
+    {
+        Console.WriteLine(item);
+    }
 }
-
-Console.WriteLine("Stack reverse: ");
-
-
-foreach (var item in stack.Reverse())
+catch (Exception ex)
 {
-    Console.WriteLine(item);
+    Console.WriteLine("stack is empty");
 }
-

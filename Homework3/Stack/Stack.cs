@@ -45,7 +45,7 @@ namespace Stack
             }
         }
 
-
+       
         public T this[int index]
         {
             get => Items[index];

@@ -24,7 +24,7 @@ try
         Console.WriteLine(item);
     }
 }
-catch (Exception ex)
+catch
 {
     Console.WriteLine("stack is empty");
 }

@@ -33,10 +33,9 @@ try
 
     Console.WriteLine("Undo tracker1: " + tracker1.Undo());
     Console.WriteLine("Undo tracker2: " + tracker2.Undo());
-
-
 }
+
 catch (Exception ex)
 {
-    Console.WriteLine("exeption");
+    Console.WriteLine("Sorry");
 }

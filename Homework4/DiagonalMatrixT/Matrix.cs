@@ -86,23 +86,5 @@ namespace DiagonalMatrixT
             ElementChanged?.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
         }
 
-        //public Matrix<T> Add (Matrix<T> a, Matrix<T> b)
-        //{
-        //    Matrix<T> matrix = new Matrix<T>();
-
-        //    if (a.Size == b.Size)
-        //    {
-        //        for (int i = 0; i < a.Size; i++)
-        //        {
-        //            matrix.DiagonalElements[i] = a.DiagonalElements[i] + 0;
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //       throw new ArgumentException("Matrixes are not of the same dimensions");
-        //    }
-
-        //}
     }
 }

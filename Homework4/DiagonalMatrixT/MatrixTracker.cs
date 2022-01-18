@@ -15,8 +15,8 @@ namespace DiagonalMatrixT
             Matrix = matrix;
         }
         public void OnElementChanged(object source, MatrixEventArgs<T> args)
-        {           
-            Console.WriteLine("Update happened " + args.Index + " " + args.NewValue + " " + args.OldValue); // testing
+        {
+            Console.WriteLine($"Update happened: Index - {args.Index} NewValue - {args.NewValue} + OldValue{args.OldValue}"); // testing
             oldIndex = args.Index;
         }
         public Matrix<T> Undo()

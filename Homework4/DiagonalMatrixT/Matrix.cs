@@ -9,8 +9,8 @@ namespace DiagonalMatrixT
     public class MatrixEventArgs<T> : EventArgs
     {
         public int Index { get; set; }
-        public T NewValue { get; set; }
-        public T OldValue { get; set; }
+        public T? NewValue { get; set; }
+        public T? OldValue { get; set; }
     }
     public class Matrix<T>
     {        
@@ -21,7 +21,7 @@ namespace DiagonalMatrixT
             get; set;
         }
 
-        public T OldValue { get; set; }
+        public T? OldValue { get; set; }
         public T[] DiagonalElements { get; set; }
 
         public Matrix(int size)
@@ -59,17 +59,6 @@ namespace DiagonalMatrixT
             return String.Join(",", DiagonalElements);
         }
 
-        public override bool Equals(object obj)
-        {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            Matrix<T> m = (Matrix<T>)obj;
-
-            return (Size == m.Size && DiagonalElements.SequenceEqual(m.DiagonalElements));
-        }
-
         public void UpdateMatrix(int index, T newValue, Func<int, T, bool> action)
         {
             if (action(index, newValue))
@@ -83,7 +72,7 @@ namespace DiagonalMatrixT
 
         protected virtual void OnElementChanged(int index, T newValue)
         {
-            ElementChanged?.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
+            ElementChanged.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
         }
 
     }

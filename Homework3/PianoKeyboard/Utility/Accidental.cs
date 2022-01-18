@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PianoKeyboard
 {
-    public static class Accidentall
+    public static class Accidental
     {
         public const string Sharp = "#";
         public const string Flat = "b";

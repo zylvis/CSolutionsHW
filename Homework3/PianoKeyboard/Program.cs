@@ -1,7 +1,7 @@
 ﻿using PianoKeyboard;
 
-Key a = new Key(Note.A, Accidentall.Sharp, Octave.First);
-Key b = new Key(Note.B, Accidentall.Flat, Octave.Fifth);
+Key a = new Key(Note.A, Accidental.Sharp, Octave.First);
+Key b = new Key(Note.B, Accidental.Flat, Octave.Fifth);
 
 Console.WriteLine(a);
 Console.WriteLine(b);

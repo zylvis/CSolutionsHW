@@ -10,13 +10,13 @@ namespace PianoKeyboard.Extenstions
 {
     public static class Extensions
     {
-        public static string GetEnumAttribute (this Enum enumName)
+        public static string? GetEnumAttribute(this Enum enumName)
         {
-           return enumName.GetType()
-       .GetMember(enumName.ToString())
-       .First()
-       .GetCustomAttribute<DisplayAttribute>()
-       ?.GetName();
+            return enumName.GetType()
+        .GetMember(enumName.ToString())
+        .First()
+        .GetCustomAttribute<DisplayAttribute>()
+        ?.GetName();
         }
     }
 }

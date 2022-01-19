@@ -11,10 +11,19 @@ namespace Stack
     {
         private T[] Items { get; set; } = new T[0];
         public int Size { get; private set; }
+        public int MaxSize { get; set; }
 
+        public Stack(int maxSize)
+        {
+            MaxSize = maxSize;
+        }
         public void Push(T value)
         {
-            if (Size == Items.Length)
+            if (Size == MaxSize)
+            {
+                throw new ArgumentOutOfRangeException("Stack riched maxSize limit");
+            }
+            else if( Size == Items.Length)
             {
                 int newlength = Size == 0 ? 1 : Size + 1;
                 T[] newarray = new T[newlength];
@@ -29,7 +38,7 @@ namespace Stack
         {
             if (Size == 0)
             {
-                throw new InvalidOperationException("Empty");
+                throw new InvalidOperationException("Stack is Empty");
             }
             Size--;
             return Items[Size];

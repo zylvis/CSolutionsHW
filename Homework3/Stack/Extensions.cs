@@ -11,7 +11,7 @@ namespace Stack
     {
         public static Stack<T> Reverse<T>(this Stack.Stack<T> stack)
         {
-            Stack<T> reverseStack = new Stack<T>();
+            Stack<T> reverseStack = new Stack<T>(stack.MaxSize);
             while (stack.Size != 0)
             {
                 reverseStack.Push(stack.Pop());

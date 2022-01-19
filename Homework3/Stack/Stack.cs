@@ -9,9 +9,8 @@ namespace Stack
 {
     public class Stack<T> : IStack<T>, IEnumerable
     {
-       private T[] Items {get; set; } = new T[0];
-        public int Size { get; private set; }   
-
+        private T[] Items { get; set; } = new T[0];
+        public int Size { get; private set; }
 
         public void Push(T value)
         {
@@ -45,12 +44,5 @@ namespace Stack
         {
             return Size == 0;
         }
-
-        public T this[int index]
-        {
-            get => Items[index];
-            set => Items[index] = value;
-        }
-
     }
 }

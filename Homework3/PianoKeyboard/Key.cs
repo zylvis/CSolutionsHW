@@ -29,18 +29,16 @@ namespace PianoKeyboard
             return $"{Note}{Accidental} ({Octave})";
         }
 
-        public override bool Equals(object obj)
-        {   
+        public override bool Equals(object? obj)
+        {
             if ((obj == null) || !this.GetType().Equals(obj.GetType()))
             {
                 return false;
             }
 
             Key k = (Key)obj;
-
             string enharmonic = Note + Accidental + k.Note + k.Accidental;
 
-         
             if (Note == k.Note && Accidental == k.Accidental)
             {
                 return true;

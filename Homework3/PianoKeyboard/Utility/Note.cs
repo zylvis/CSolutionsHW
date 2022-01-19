@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PianoKeyboard
 {
-    enum Note
+    public enum Note
     {
         A, B, C, D, E, F, G
     }

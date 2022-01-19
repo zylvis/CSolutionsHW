@@ -10,7 +10,7 @@ namespace PianoKeyboard
 {
     public struct Key: IComparable<Key>
     {
-        public Key(object note, string accidentall, object octave)
+        public Key(Note note, string accidentall, Octave octave)
         {
             this.Note = note.ToString();
             this.Accidental = accidentall;

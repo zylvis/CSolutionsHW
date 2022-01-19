@@ -2,7 +2,7 @@
 try
 {
 
-Stack.Stack<string> stack = new(2);
+    Stack.Stack<string> stack = new(16);
 
     stack.Push("one");
     stack.Push("two");
@@ -23,8 +23,8 @@ Stack.Stack<string> stack = new(2);
     foreach (var item in stack.Reverse())
     {
         Console.WriteLine(item);
-    }  
-    
+    }
+
 }
 catch
 {

@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PianoKeyboard
 {
+
     public enum Accidental
     {
-        [Description("#")]
+        [Display(Name = "#")]
         Sharp,
 
-        [Description("b")]
+        [Display(Name = "b")]
         Flat,
 
-        [Description("")]
+        [Display(Name = "")]
         NoSign
     }
 }

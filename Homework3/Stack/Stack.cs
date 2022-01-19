@@ -41,6 +41,11 @@ namespace Stack
             return Items.GetEnumerator();
         }
 
+        public bool IsEmpty()
+        {
+            return Items.Length == 0;
+        }
+
         public T this[int index]
         {
             get => Items[index];

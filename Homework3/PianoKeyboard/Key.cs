@@ -40,7 +40,6 @@ namespace PianoKeyboard
             }
             else if (Note == k.Note && Accidental == k.Accidental)
             {
-
                 return true;
             }
 
@@ -80,7 +79,7 @@ namespace PianoKeyboard
 
         public int CompareTo(Key other)
         {
-            if (Note == other.Note && Accidental == other.Accidental && Accidental == other.Accidental)
+            if (Note == other.Note && Accidental == other.Accidental && Octave == other.Octave)
             {
                 return 1;
             }

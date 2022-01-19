@@ -32,6 +32,7 @@ namespace PianoKeyboard
         public override bool Equals(object obj)
         {
             Key k = (Key)obj;
+
             string enharmonic = Note + Accidental + k.Note + k.Accidental;
 
             if ((obj == null) || !this.GetType().Equals(obj.GetType()))

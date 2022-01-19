@@ -9,7 +9,7 @@ namespace Stack
 {
     public class Stack<T> : IStack<T>, IEnumerable
     {
-        public T[] Items { get; set; } = new T[0];
+        public T[] Items {get; private set; } = new T[0];
         public int Size { get; set; }   
 
 

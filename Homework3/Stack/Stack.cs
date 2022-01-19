@@ -43,7 +43,7 @@ namespace Stack
 
         public bool IsEmpty()
         {
-            return Items.Length == 0;
+            return Size == 0;
         }
 
         public T this[int index]

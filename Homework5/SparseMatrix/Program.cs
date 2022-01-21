@@ -14,4 +14,6 @@ foreach (var item in matrix.Elements)
     Console.WriteLine(item.value);
 }
 
-Console.WriteLine(matrix[2,2]);
+Console.WriteLine($"Indexer: { matrix[2, 2]}");
+
+Console.WriteLine(matrix);

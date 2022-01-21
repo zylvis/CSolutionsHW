@@ -27,6 +27,17 @@ namespace SMatrix
             Elements.Add((row, column, item));
         }
 
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var item in Elements)
+            {
+                builder.Append($"{ item.row}, {item.column}, { item.value}");
+                builder.Append(Environment.NewLine);
+            }
+            return builder.ToString();
+        }
+
         public IEnumerator<int> GetEnumerator()
         {
             throw new NotImplementedException();

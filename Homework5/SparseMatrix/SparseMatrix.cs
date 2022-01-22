@@ -32,7 +32,7 @@ namespace SMatrix
             StringBuilder builder = new StringBuilder();
             foreach (var item in Elements)
             {
-                builder.Append($"{ item.row}, {item.column}, { item.value}");
+                builder.Append($"r{item.row}, c{item.column}, v{ item.value}");
                 builder.Append(Environment.NewLine);
             }
             return builder.ToString();
@@ -40,12 +40,49 @@ namespace SMatrix
 
         public IEnumerator<int> GetEnumerator()
         {
-            throw new NotImplementedException();
+
+            bool isNotZero = false; ;
+
+            for (int r = 0; r < RowIndex; r++)
+            {
+               
+                for (int c = 0; c < ColumnIndex; c++)
+                {
+                    foreach (var item in Elements)
+                    {
+                        if (item.row == r && item.column == c)
+                        {
+                            yield return item.value;
+                            isNotZero = true;
+                        }
+                    }
+                    if (!isNotZero)
+                    {
+                        yield return 0;
+                    }
+                    isNotZero = false;
+                }
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
+        }
+
+        public List<(int,int,int)> GetNoZeroElements()
+        {
+                       
+           return Elements.OrderBy(x => x.column).ToList();
+        }
+
+        public int GetCount(int value)
+        {
+            if (value == 0)
+            {
+                return RowIndex * ColumnIndex - Elements.Count;
+            }
+            return Elements.Count(x => x.value == value); 
         }
 
         public int this[int row, int column]

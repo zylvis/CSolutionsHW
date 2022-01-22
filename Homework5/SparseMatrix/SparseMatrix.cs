@@ -48,6 +48,25 @@ namespace SMatrix
         {
             Elements.Add((row, column, item));
         }
+        public int this[int row, int column]
+        {
+            get
+            {
+
+                var tempList = Elements.Where(x => x.row == row && x.column == column).Select(x => x.value).ToList();
+                if (tempList.Count < 1)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return tempList[0];
+                }
+
+
+            }
+            set { }
+        }
 
         public override string ToString()
         {
@@ -122,26 +141,6 @@ namespace SMatrix
                 return RowIndex * ColumnIndex - Elements.Count;
             }
             return Elements.Count(x => x.value == value);
-        }
-
-        public int this[int row, int column]
-        {
-            get
-            {
-
-                var tempList = Elements.Where(x => x.row == row && x.column == column).Select(x => x.value).ToList();
-                if (tempList.Count < 1)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return tempList[0];
-                }
-
-
-            }
-            set { }
         }
     }
 }

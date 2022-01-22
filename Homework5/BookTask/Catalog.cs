@@ -30,7 +30,10 @@ namespace BookTask
             return GetEnumerator();
         }
 
-        public 
+        public Book GetBookyISBN()
+        {
+            return  null;
+        }
 
     }
 }

@@ -20,6 +20,5 @@ namespace BookTask
             Date = date;
             Authors = authors;
         }
-
     }
 }

@@ -19,7 +19,7 @@ namespace BookTask
             Title = title;
             Date = date;
             Authors = authors;
-
         }
+
     }
 }

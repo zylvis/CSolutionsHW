@@ -30,10 +30,32 @@ namespace SMatrix
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            foreach (var item in Elements)
+            //foreach (var item in Elements)
+            //{
+            //    builder.Append($"r{item.row}, c{item.column}, v{ item.value}");
+            //    builder.Append(Environment.NewLine);
+            //}
+            bool isNotZero = false; ;
+
+            for (int r = 0; r < RowIndex; r++)
             {
-                builder.Append($"r{item.row}, c{item.column}, v{ item.value}");
                 builder.Append(Environment.NewLine);
+                for (int c = 0; c < ColumnIndex; c++)
+                {
+                    foreach (var item in Elements)
+                    {
+                        if (item.row == r && item.column == c)
+                        {
+                            builder.Append(item.value);
+                            isNotZero = true;
+                        }
+                    }
+                    if (!isNotZero)
+                    {
+                        builder.Append(0);
+                    }
+                    isNotZero = false;
+                }
             }
             return builder.ToString();
         }

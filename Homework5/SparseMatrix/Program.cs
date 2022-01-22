@@ -9,7 +9,7 @@ matrix.AddItem(0, 4, 2);
 matrix.AddItem(3, 0, 1);
 matrix.AddItem(3, 4, 4);
 
-Console.WriteLine("OverrideToString: " + "\n" + matrix);
+Console.WriteLine("OverrideToString: " + matrix);
 
 Console.WriteLine($"Indexer [0, 4]: { matrix[0, 4]}");
 Console.WriteLine($"Indexer [0, 1]: { matrix[0, 1]}");
@@ -31,5 +31,4 @@ Console.WriteLine();
 
 Console.WriteLine("GetCount(1): " + matrix.GetCount(1));
 Console.WriteLine("GetCount(0): " + matrix.GetCount(0));
-Console.WriteLine();
-Console.WriteLine("Print all matrix:");
+

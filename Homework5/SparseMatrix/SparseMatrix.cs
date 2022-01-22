@@ -9,16 +9,38 @@ namespace SMatrix
 {
     internal class SparseMatrix : IEnumerable<int>
     {
-        public int RowIndex { get; }
-        public int ColumnIndex { get; }
+        private int _rowIndex;
+        private int _colIndex;
+        public int RowIndex
+        {
+            get
+            {
+                if (_rowIndex < 1)
+                {
+                    throw new ArgumentOutOfRangeException("Row Size can't be Zero");
+                }
+                return _rowIndex;
+            }
+        }
+        public int ColumnIndex
+        {
+            get
+            {
+                if (_colIndex < 1)
+                {
+                    throw new ArgumentOutOfRangeException("Column Size can't be Zero");
+                }
+                return _colIndex;
+            }
+        }
 
         public List<(int row, int column, int value)> Elements { get; set; }
 
 
-        public SparseMatrix(int rowIndex, int columnIndex)
+        public SparseMatrix(int rowIndex, int colIndex)
         {
-            this.RowIndex = rowIndex;
-            this.ColumnIndex = columnIndex;
+            _rowIndex = rowIndex;
+            _colIndex = colIndex;
             Elements = new List<(int, int, int)>();
         }
 
@@ -30,11 +52,6 @@ namespace SMatrix
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            //foreach (var item in Elements)
-            //{
-            //    builder.Append($"r{item.row}, c{item.column}, v{ item.value}");
-            //    builder.Append(Environment.NewLine);
-            //}
             bool isNotZero = false; ;
 
             for (int r = 0; r < RowIndex; r++)
@@ -67,7 +84,7 @@ namespace SMatrix
 
             for (int r = 0; r < RowIndex; r++)
             {
-               
+
                 for (int c = 0; c < ColumnIndex; c++)
                 {
                     foreach (var item in Elements)
@@ -92,10 +109,10 @@ namespace SMatrix
             return GetEnumerator();
         }
 
-        public List<(int,int,int)> GetNoZeroElements()
+        public List<(int, int, int)> GetNoZeroElements()
         {
-                       
-           return Elements.OrderBy(x => x.column).ToList();
+
+            return Elements.OrderBy(x => x.column).ToList();
         }
 
         public int GetCount(int value)
@@ -104,7 +121,7 @@ namespace SMatrix
             {
                 return RowIndex * ColumnIndex - Elements.Count;
             }
-            return Elements.Count(x => x.value == value); 
+            return Elements.Count(x => x.value == value);
         }
 
         public int this[int row, int column]

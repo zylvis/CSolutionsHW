@@ -21,24 +21,24 @@ namespace TrainingManagementSystem
             this.existingSetElements = 0;
         }
 
-        public object[] SetOfObjects { get; set; } = new object[MAX_SET_NUMBER];
+        public Description[] SetOfObjects { get; set; } = new Description[MAX_SET_NUMBER];
 
         internal Lecture Lecture { get => _lecture; set => _lecture = value; }
         internal PracticalLesson PracticalLesson { get => _practicalLesson; set => _practicalLesson = value; }
 
-        public void Add(object obj)
+        public void Add(Description description)
         {
             if (existingSetElements < MAX_SET_NUMBER)
             {
-                if (obj is Lecture)
+                if (description is Lecture)
                 {
-                    SetOfObjects[existingSetElements] = obj;
+                    SetOfObjects[existingSetElements] = description;
                     existingSetElements++;
 
                 }
-                else if (obj is PracticalLesson)
+                else if (description is PracticalLesson)
                 {
-                    SetOfObjects[existingSetElements] = obj;
+                    SetOfObjects[existingSetElements] = description;
                     existingSetElements++;
                 }
             }

@@ -25,7 +25,7 @@ namespace Stack
             }
             else if( Size == Items.Length)
             {
-                int newlength = Size == 0 ? 1 : Size + 1;
+                int newlength = Size == 0 ? 1 : Size *2;
                 T[] newarray = new T[newlength];
                 Items.CopyTo(newarray, 0);
                 Items = newarray;

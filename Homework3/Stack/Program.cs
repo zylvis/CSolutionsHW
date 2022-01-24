@@ -1,4 +1,5 @@
 ﻿using Stack;
+using System.Collections.Generic;
 try
 {
 
@@ -9,7 +10,7 @@ try
     stack.Push("three");
     stack.Push("four");
 
-    stack.Pop();
+    //stack.Pop();
 
     Console.WriteLine("Stack: ");
 
@@ -30,3 +31,5 @@ catch
 {
     Console.WriteLine("stack is empty");
 }
+
+

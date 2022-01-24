@@ -9,10 +9,10 @@ namespace Stack
 {
     public static class Extensions
     {
-        public static Stack<T> Reverse<T>(this Stack.Stack<T> stack)
+        public static Stack<T> Reverse<T>(this Stack<T> stack)
         {
             Stack<T> reverseStack = new Stack<T>(stack.MaxSize);
-            while (stack.Size != 0)
+            while (!stack.IsEmpty())
             {
                 reverseStack.Push(stack.Pop());
             }

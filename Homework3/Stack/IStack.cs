@@ -8,6 +8,7 @@ namespace Stack
 {
     public interface IStack<T>
     {
+        int MaxSize { get; }
         void Push(T value);
         T Pop();
         bool IsEmpty();

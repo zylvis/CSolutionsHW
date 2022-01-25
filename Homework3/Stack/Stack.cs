@@ -28,8 +28,7 @@ namespace Stack
             else 
             {
                 Items[++top] = value;
-            }
-            
+            }         
         }
 
         public T Pop()
@@ -41,8 +40,7 @@ namespace Stack
                         
             return Items[top--];
         }
-               
-
+        
         public bool IsEmpty()
         {
             return top < 0;

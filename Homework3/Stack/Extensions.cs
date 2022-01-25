@@ -7,9 +7,9 @@ using Stack;
 
 namespace Stack
 {
-    public static class Extensions
+    public static class Extentions
     {
-        public static Stack<T> Reverse<T>(this Stack<T> stack)
+        public static Stack<T> ReverseStack<T>(this IStack<T> stack)
         {
             Stack<T> reverseStack = new Stack<T>(stack.MaxSize);
             while (!stack.IsEmpty())

@@ -1,5 +1,4 @@
 ﻿using Stack;
-using System.Collections.Generic;
 try
 {
 
@@ -10,8 +9,7 @@ try
     stack.Push("three");
     stack.Push("four");
     stack.Pop();
-    //Console.WriteLine(stack.Pop());
-
+   
     Console.WriteLine("Stack: ");
 
     foreach (var item in stack)
@@ -19,10 +17,9 @@ try
         Console.WriteLine(item);
     }
 
-
     Console.WriteLine("Stack reverse: ");
 
-    foreach (var item in stack.Reverse())
+    foreach (var item in stack.ReverseStack())
     {
         Console.WriteLine(item);
     }

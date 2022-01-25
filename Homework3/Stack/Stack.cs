@@ -9,39 +9,38 @@ namespace Stack
 {
     public class Stack<T> : IStack<T>, IEnumerable
     {
-        private T[] Items { get; set; } = new T[0];
-        public int Size { get; private set; }
+        private int top;
+        private T[] Items { get; set; }
         public int MaxSize { get; set; }
 
         public Stack(int maxSize)
         {
             MaxSize = maxSize;
+            Items = new T[MaxSize];
+            top = -1;
         }
         public void Push(T value)
         {
-            if (Size == MaxSize)
+            if (top >= MaxSize)
             {
                 throw new ArgumentOutOfRangeException("Stack riched maxSize limit");
             }
-            else if( Size == Items.Length)
+            else 
             {
-                int newlength = Size == 0 ? 1 : Size *2;
-                T[] newarray = new T[newlength];
-                Items.CopyTo(newarray, 0);
-                Items = newarray;
+                Items[++top] = value;
             }
-            Items[Size] = value;
-            Size++;
+            
         }
 
         public T Pop()
         {
-            if (Size == 0)
+            if (IsEmpty())
             {
                 throw new InvalidOperationException("Stack is Empty");
             }
-            Size--;
-            return Items[Size];
+
+            
+            return Items[top--];
         }
 
         public IEnumerator GetEnumerator()
@@ -51,7 +50,7 @@ namespace Stack
 
         public bool IsEmpty()
         {
-            return Size == 0;
+            return top < 0;
         }
     }
 }

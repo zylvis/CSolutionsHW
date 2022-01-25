@@ -9,8 +9,8 @@ try
     stack.Push("two");
     stack.Push("three");
     stack.Push("four");
-
-    //stack.Pop();
+    stack.Pop();
+    //Console.WriteLine(stack.Pop());
 
     Console.WriteLine("Stack: ");
 
@@ -18,6 +18,7 @@ try
     {
         Console.WriteLine(item);
     }
+
 
     Console.WriteLine("Stack reverse: ");
 

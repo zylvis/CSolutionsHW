@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    public class Stack<T> : IStack<T>, IEnumerable
+    public class Stack<T> : IStack<T>, IEnumerable<T>
     {
         private int top;
         private T[] Items { get; set; }
@@ -38,19 +38,27 @@ namespace Stack
             {
                 throw new InvalidOperationException("Stack is Empty");
             }
-
-            
+                        
             return Items[top--];
         }
-
-        public IEnumerator GetEnumerator()
-        {
-            return Items.GetEnumerator();
-        }
+               
 
         public bool IsEmpty()
         {
             return top < 0;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = top; i >= 0; i--)
+            {
+                yield return  Items[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+           return GetEnumerator();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace BookTask
         {
             if (isbn.Length == 13)
             {
-                return Books.FirstOrDefault(x => Regex.Replace(x.ISBN, "-", "") == isbn);
+                return Books.FirstOrDefault(x => Regex.Replace(x.ISBN, "-", String.Empty) == isbn);
             }
             else if (isbn.Length == 17)
             {

@@ -13,5 +13,10 @@ namespace Vacations
         {
             SetOfEmployees = new List<object>();
         }
+
+        public void Add(object employee)
+        {
+            SetOfEmployees.Add(employee);
+        }
     }
 }

@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BookTask
 {
-    internal class Catalog: IEnumerable<Book>
+    internal class Catalog : IEnumerable<Book>
     {
         public List<Book> Books { get; set; }
         public Catalog()
@@ -30,9 +31,22 @@ namespace BookTask
             return GetEnumerator();
         }
 
-        public Book GetBookyISBN()
+        public Book GetBookISBN(string isbn)
         {
-            return  null;
+            if (isbn.Length == 13)
+            {
+                return Books.FirstOrDefault(x => Regex.Replace(x.ISBN, "-", "") == isbn);
+            }
+            else if (isbn.Length == 17)
+            {
+                return Books.FirstOrDefault(x => x.ISBN == isbn);
+            }
+            else
+            {
+                throw new ArgumentException("Wrong ISBN number");
+            }
+
+
         }
 
     }

@@ -19,7 +19,7 @@ namespace Vacations
             SetOfEmployees.Add(employee);
         }
 
-        public int AverageDaysOfVacations()
+        public int GetAverageDaysOfVacations()
         {
             int days = 0;
             TimeSpan date = new TimeSpan(0, 0, 0);
@@ -28,13 +28,11 @@ namespace Vacations
             {
                 date = item.LastDay - item.FirstDay;
                 days = days + date.Days;
-
             }
-
             return days / SetOfEmployees.Count;
         }
 
-        public List<(string name, int averageDays)> AveregeDaysOfVacationsEach()
+        public List<(string name, int averageDays)> GetAveregeDaysOfVacationsEach()
         {
             List<(string, int)> daysEach = new List<(string, int)>();
             string? name = null;
@@ -57,6 +55,19 @@ namespace Vacations
                 name= item.Name;    
             }
             return daysEach.DistinctBy(x => x.Item1).ToList();
+        }
+
+        public List<(int month, int empCount)> GetMonthsWithEmployess()
+        {
+            List<(int, int)> monthsAndNumber = new List<(int, int)>();
+            int count = 0;
+            for (int i = 1; i <= 12; i++)
+            {
+                count = SetOfEmployees.Where(x => x.FirstDay.Month == i || x.LastDay.Month == i).DistinctBy(e => e.Name).ToList().Count();
+                monthsAndNumber.Add((i, count));
+                count = 0;
+            }
+            return monthsAndNumber;
         }
     }
 }

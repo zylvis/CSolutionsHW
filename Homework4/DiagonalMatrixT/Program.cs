@@ -5,7 +5,7 @@ try
     Matrix<int> matrix1 = new Matrix<int>(3);
     Matrix<int> matrix2 = new Matrix<int>(3);
     MatrixTracker<int> tracker1 = new MatrixTracker<int>(matrix1);
-    MatrixTracker<int> tracker2 = new MatrixTracker<int>(matrix1);
+    MatrixTracker<int> tracker2 = new MatrixTracker<int>(matrix2);
 
     matrix1.ElementChanged += tracker1.OnElementChanged;
     matrix2.ElementChanged += tracker2.OnElementChanged;

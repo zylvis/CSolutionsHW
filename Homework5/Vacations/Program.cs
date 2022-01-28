@@ -22,3 +22,17 @@ foreach (var item in vacation.GetMonthsWithEmployess())
 {
     Console.WriteLine($"Month: {item.month} - Number of people: {item.empCount}");
 }
+
+
+//List<DateTime> allDates = new List<DateTime>();
+
+//for (var i = new DateTime(2021, 1, 1); i <= new DateTime(2021, 12, 31); i = i.AddDays(1))
+//{
+//    allDates.Add(i);
+//}
+
+//for (int i = 0; i < allDates.Count; i++)
+//{
+//    Console.WriteLine(allDates[i]);
+//}
+

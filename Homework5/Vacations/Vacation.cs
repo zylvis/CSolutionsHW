@@ -52,7 +52,7 @@ namespace Vacations
                     }
                     daysEach.Add((item.Name, days / SetOfEmployees.Where(n => n.Name == item.Name).Count()));
                 }
-                name= item.Name;    
+                name = item.Name;
             }
             return daysEach.DistinctBy(x => x.Item1).ToList();
         }
@@ -68,6 +68,26 @@ namespace Vacations
                 count = 0;
             }
             return monthsAndNumber;
+        }
+
+        public List<(int month, int day)> GetFreeDates()
+        {
+            List<DateTime> allDates = new List<DateTime>();
+            List<(int, int)> freeMonthAndDay = new List<(int, int)>();
+            for (var i = new DateTime(2021, 1, 1); i <= new DateTime(2021, 12, 31); i.AddDays(1))
+            {
+                allDates.Add(i);
+            }
+
+            foreach (var item in allDates)
+            {
+                foreach (var emp in SetOfEmployees)
+                {
+
+                }
+            }
+
+            return freeMonthAndDay;
         }
     }
 }

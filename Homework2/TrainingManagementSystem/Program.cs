@@ -9,8 +9,6 @@ namespace TrainingManagementSystem
             var lecture = new Lecture("some lecture description", "Lecture topic");
             var practicalLesson = new PracticalLesson("some practical description", "task", "solution link --->");
             var training = new Training("some training description", lecture, practicalLesson);
-            
-            Training training2 = training.Clone();
 
             training.Add(lecture);
             training.Add(practicalLesson);
@@ -31,7 +29,7 @@ namespace TrainingManagementSystem
 
             Console.WriteLine(training.IsPractical());
 
-            Console.WriteLine(training2.DescriptionText);
+            Training training2 = training.Clone();
 
             foreach (var item in training2.SetOfObjects)
             {

@@ -64,6 +64,7 @@ namespace TrainingManagementSystem
         public Training Clone()
         {
             Training training = new(this.DescriptionText, _lecture, _practicalLesson);
+            training.SetOfObjects = this.SetOfObjects;
             return training;
         }
     }

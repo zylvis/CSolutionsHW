@@ -32,6 +32,20 @@ namespace TrainingManagementSystem
             Console.WriteLine(training.IsPractical());
 
             Console.WriteLine(training2.DescriptionText);
+
+            foreach (var item in training2.SetOfObjects)
+            {
+                if (item is Lecture)
+                {
+                    Lecture temp = (Lecture)item;
+                    Console.WriteLine(temp.Topic);
+                }
+                if (item is PracticalLesson)
+                {
+                    PracticalLesson temp = (PracticalLesson)item;
+                    Console.WriteLine(temp.Solution);
+                }
+            }
         }
     }
 }

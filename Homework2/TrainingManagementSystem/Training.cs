@@ -48,11 +48,17 @@ namespace TrainingManagementSystem
 
         public bool IsPractical()
         {
-            if (SetOfObjects.Contains(PracticalLesson))
+            int count = 0;
+            foreach (Description description in SetOfObjects)
             {
-                return true;
+                if (description is PracticalLesson)
+                {
+                    count++;
+                }
             }
-            return false;
+
+            return count > 0;
+            
         }
 
         public Training Clone()

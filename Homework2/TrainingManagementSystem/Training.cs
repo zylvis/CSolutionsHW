@@ -23,9 +23,6 @@ namespace TrainingManagementSystem
 
         public Description[] SetOfObjects { get; set; } = new Description[MAX_SET_NUMBER];
 
-        internal Lecture Lecture { get => _lecture; set => _lecture = value; }
-        internal PracticalLesson PracticalLesson { get => _practicalLesson; set => _practicalLesson = value; }
-
         public void Add(Description description)
         {
             if (existingSetElements < MAX_SET_NUMBER)

@@ -24,15 +24,9 @@ foreach (var item in vacation.GetMonthsWithEmployess())
 }
 
 
-//List<DateTime> allDates = new List<DateTime>();
+Console.WriteLine("Free dates: ");
 
-//for (var i = new DateTime(2021, 1, 1); i <= new DateTime(2021, 12, 31); i = i.AddDays(1))
-//{
-//    allDates.Add(i);
-//}
-
-//for (int i = 0; i < allDates.Count; i++)
-//{
-//    Console.WriteLine(allDates[i]);
-//}
-
+foreach (var item in vacation.GetFreeDates())
+{
+    Console.WriteLine(item);
+}

@@ -73,17 +73,35 @@ namespace Vacations
         public List<(int month, int day)> GetFreeDates()
         {
             List<DateTime> allDates = new List<DateTime>();
+            List<DateTime> allOcupiedDates = new List<DateTime>();
             List<(int, int)> freeMonthAndDay = new List<(int, int)>();
-            for (var i = new DateTime(2021, 1, 1); i <= new DateTime(2021, 12, 31); i.AddDays(1))
+            for (var i = new DateTime(2021, 1, 1); i <= new DateTime(2021, 12, 31); i = i.AddDays(1))
             {
                 allDates.Add(i);
             }
 
+            foreach (var emp in SetOfEmployees)
+            {
+                for (var i = emp.FirstDay; i <= emp.LastDay; i = i.AddDays(1))
+                {
+                    allOcupiedDates.Add(i);
+                }
+            }
+            allOcupiedDates.Sort();
+
             foreach (var item in allDates)
             {
-                foreach (var emp in SetOfEmployees)
+                int count = 0;
+                foreach (var date in allOcupiedDates)
                 {
-
+                    if (item == date)
+                    {
+                        count++;
+                    }
+                }
+                if (count == 0)
+                {
+                    freeMonthAndDay.Add((item.Month, item.Day));
                 }
             }
 

@@ -122,14 +122,8 @@ namespace Vacations
                 {
                     count++;
                 }
-
-
             }
-
             return count > 0;
-
-
-
         }
     }
 }

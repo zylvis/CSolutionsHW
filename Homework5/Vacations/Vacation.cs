@@ -43,7 +43,7 @@ namespace Vacations
                 {
                     TimeSpan daysSpan = new TimeSpan(0, 0, 0);
                     int days = 0;
-                    int averageDays = 0;
+
                     foreach (var emp in SetOfEmployees.Where(n => n.Name == item.Name))
                     {
                         daysSpan = emp.LastDay - emp.FirstDay;
@@ -75,6 +75,7 @@ namespace Vacations
             List<DateTime> allDates = new List<DateTime>();
             List<DateTime> allOcupiedDates = new List<DateTime>();
             List<(int, int)> freeMonthAndDay = new List<(int, int)>();
+
             for (var i = new DateTime(2021, 1, 1); i <= new DateTime(2021, 12, 31); i = i.AddDays(1))
             {
                 allDates.Add(i);
@@ -87,6 +88,7 @@ namespace Vacations
                     allOcupiedDates.Add(i);
                 }
             }
+
             allOcupiedDates.Sort();
 
             foreach (var item in allDates)
@@ -106,6 +108,28 @@ namespace Vacations
             }
 
             return freeMonthAndDay;
+        }
+
+        public bool PersonDatesIntersect()
+        {
+            int count = 0;
+            foreach (var item in SetOfEmployees.GroupBy(x => x.Name).Where(y => y.Count() > 1).ToList())
+            {
+                var firstVacation = SetOfEmployees.Where(x => x.Name == item.Key).ToList()[0];
+                var secondVacation = SetOfEmployees.Where(x => x.Name == item.Key).ToList()[1];
+
+                if (firstVacation.LastDay >= secondVacation.FirstDay && firstVacation.FirstDay <= secondVacation.LastDay)
+                {
+                    count++;
+                }
+
+
+            }
+
+            return count > 0;
+
+
+
         }
     }
 }

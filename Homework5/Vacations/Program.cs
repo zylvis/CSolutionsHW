@@ -2,7 +2,7 @@
 
 var object1 = new Employee("John", new DateTime(2021, 1, 19), new DateTime(2021, 2, 22));
 var object2 = new Employee("Steve", new DateTime(2021, 3, 6), new DateTime(2021, 3, 8));
-var object3 = new Employee("John", new DateTime(2021, 12, 3), new DateTime(2021, 12, 31));
+var object3 = new Employee("John", new DateTime(2021, 2, 3), new DateTime(2021, 12, 31));
 
 Vacation vacation = new Vacation();
 vacation.Add(object1);
@@ -30,3 +30,8 @@ foreach (var item in vacation.GetFreeDates())
 {
     Console.WriteLine(item);
 }
+
+Console.WriteLine("Vacations overlap: ");
+    Console.WriteLine(vacation.PersonDatesIntersect());
+
+

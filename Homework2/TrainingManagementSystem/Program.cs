@@ -29,6 +29,9 @@ namespace TrainingManagementSystem
 
             Console.WriteLine(training.IsPractical());
 
+
+            
+
             Training training2 = training.Clone();
 
             foreach (var item in training2.SetOfObjects)

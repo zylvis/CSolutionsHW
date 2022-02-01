@@ -13,7 +13,7 @@ namespace DiagonalMatrixT
 
         public int Size
         {
-            get; set;
+            get; private set;
         }
 
         public T? OldValue { get; set; }

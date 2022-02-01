@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiagonalMatrixT
 {
-    public class MatrixEventArgs<T> : EventArgs
-    {
-        public int Index { get; set; }
-        public T? NewValue { get; set; }
-        public T? OldValue { get; set; }
-    }
+    
     public class Matrix<T>
     {        
         public event EventHandler<MatrixEventArgs<T>> ElementChanged;

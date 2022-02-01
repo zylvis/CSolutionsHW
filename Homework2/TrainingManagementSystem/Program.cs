@@ -30,7 +30,7 @@ namespace TrainingManagementSystem
             Console.WriteLine(training.IsPractical());
 
 
-            
+            Console.WriteLine("Cloned items: ");
 
             Training training2 = training.Clone();
 

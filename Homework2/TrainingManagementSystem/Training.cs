@@ -67,8 +67,7 @@ namespace TrainingManagementSystem
             training._lecture = new Lecture(_lecture.DescriptionText, _lecture.Topic);
             training._practicalLesson = new PracticalLesson(_practicalLesson.DescriptionText, _practicalLesson.TaskCondition, _practicalLesson.Solution);
             training.SetOfObjects = this.SetOfObjects;
-            //Training training = new(this.DescriptionText, _lecture, _practicalLesson);
-            //training.SetOfObjects = this.SetOfObjects;
+
             return training;
         }
     }

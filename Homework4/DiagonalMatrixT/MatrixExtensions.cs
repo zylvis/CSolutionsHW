@@ -12,6 +12,6 @@ namespace DiagonalMatrixT
         public static Matrix<T> Add<T>(this Matrix<T> a, Matrix<T> b, Func<Matrix<T>, Matrix<T>, Matrix<T>> Addition)
         {
             return Addition(a, b);    
-        }       
+        }        
     }
 }

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace DiagonalMatrixT
 {
-    
+
     public class Matrix<T>
-    {        
+    {
         public event EventHandler<MatrixEventArgs<T>> ElementChanged;
 
         public int Size
         {
             get; private set;
         }
-                
+        public T? OldValue { get; set; }
         private T[] DiagonalElements { get; set; }
 
         public Matrix(int size)
@@ -49,32 +49,27 @@ namespace DiagonalMatrixT
             }
             set
             {
-               if (i == j)
+                if (i == j)
                 {
-                     DiagonalElements[i] = value;
-                }                
+                    if (!DiagonalElements[i].Equals(value))
+                    {
+                        OldValue = DiagonalElements[i];
+                        OnElementChanged(i, value);
+                        DiagonalElements[i] = value;
+                      
+                    }
+                }
             }
         }
+
         public override string ToString()
         {
             return String.Join(",", DiagonalElements);
-        }
-
-        public void UpdateMatrix(int index, T newValue, Func<int, T, bool> action)
-        {
-            if (action(index, newValue))
-            {
-                OldValue = DiagonalElements[index];
-                DiagonalElements[index] = newValue;
-
-                OnElementChanged(index, newValue);
-            }
         }
 
         protected virtual void OnElementChanged(int index, T newValue)
         {
             ElementChanged.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
         }
-
     }
 }

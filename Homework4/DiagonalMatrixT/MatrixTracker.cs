@@ -15,16 +15,20 @@ namespace DiagonalMatrixT
         public MatrixTracker(Matrix<T> matrix)
         {
             Matrix = matrix;
+            Matrix.ElementChanged += OnElementChanged;
         }
+        
         public void OnElementChanged(object source, MatrixEventArgs<T> args)
         {
             Console.WriteLine($"Update happened: Index - {args.Index} NewValue - {args.NewValue} + OldValue{args.OldValue}"); // testing
+            OldValue = args.OldValue;
             oldIndex = args.Index;
         }
+
         public Matrix<T> Undo()
         {
-            Matrix.DiagonalElements[oldIndex] = OldValue;
-            return Matrix;            
+            Matrix[oldIndex, oldIndex] = OldValue;
+            return Matrix;
         }
     }
 }

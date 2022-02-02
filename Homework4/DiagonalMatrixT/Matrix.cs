@@ -15,9 +15,8 @@ namespace DiagonalMatrixT
         {
             get; private set;
         }
-
-        public T? OldValue { get; set; }
-        public T[] DiagonalElements { get; set; }
+                
+        private T[] DiagonalElements { get; set; }
 
         public Matrix(int size)
         {
@@ -47,6 +46,13 @@ namespace DiagonalMatrixT
                 {
                     return default(T);
                 }
+            }
+            set
+            {
+               if (i == j)
+                {
+                     DiagonalElements[i] = value;
+                }                
             }
         }
         public override string ToString()

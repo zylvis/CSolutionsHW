@@ -9,6 +9,8 @@ namespace DiagonalMatrixT
     public class MatrixTracker<T>
     {
         private int oldIndex;
+        public T? OldValue { get; set; }
+
         public Matrix<T> Matrix { get; set; }
         public MatrixTracker(Matrix<T> matrix)
         {
@@ -21,7 +23,7 @@ namespace DiagonalMatrixT
         }
         public Matrix<T> Undo()
         {
-            Matrix.DiagonalElements[oldIndex] = Matrix.OldValue;
+            Matrix.DiagonalElements[oldIndex] = OldValue;
             return Matrix;            
         }
     }

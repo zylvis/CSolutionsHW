@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace DiagonalMatrixT
 {
 
-    public class Matrix<T>
+    public class Matrix<T> : IEnumerable<T>
     {
         public event EventHandler<MatrixEventArgs<T>> ElementChanged;
 
@@ -69,7 +70,17 @@ namespace DiagonalMatrixT
 
         protected virtual void OnElementChanged(int index, T newValue)
         {
-            ElementChanged.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
+            ElementChanged?.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return DiagonalElements.ToList().GetEnumerator(); 
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
-}
+} 

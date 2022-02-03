@@ -15,15 +15,14 @@ try
     matrix1[1, 1] = 2;
 
     matrix2[1, 1] = 2;
-
-
+    
     var sumOfMatrixes = matrix1.Add(matrix2, (a, b) => a + b);
-
     Console.WriteLine("Sum of matrixes: " + sumOfMatrixes.ToString());
 
     Console.WriteLine("matrix1: " + matrix1);
+    Console.WriteLine("matrix2: " + matrix2);
     Console.WriteLine("Undo tracker1: " + tracker1.Undo());
-    //Console.WriteLine("Undo tracker2: " + tracker2.Undo());
+    Console.WriteLine("Undo tracker2: " + tracker2.Undo());
 }
 
 catch (Exception ex)

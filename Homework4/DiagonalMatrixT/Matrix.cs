@@ -50,14 +50,20 @@ namespace DiagonalMatrixT
             }
             set
             {
-                if (i == j)
+
+                if (i < 0 || j < 0 || i >= Size || j >= Size)
+                {
+                    throw new ArgumentException("Out of range SquareMatrix indexes");
+                }
+                else if (i == j)
+
                 {
                     if (!DiagonalElements[i].Equals(value))
                     {
                         OldValue = DiagonalElements[i];
                         OnElementChanged(i, value);
                         DiagonalElements[i] = value;
-                      
+
                     }
                 }
             }
@@ -75,7 +81,7 @@ namespace DiagonalMatrixT
 
         public IEnumerator<T> GetEnumerator()
         {
-            return DiagonalElements.ToList().GetEnumerator(); 
+            return DiagonalElements.ToList().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -83,4 +89,4 @@ namespace DiagonalMatrixT
             return GetEnumerator();
         }
     }
-} 
+}

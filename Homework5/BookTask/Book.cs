@@ -16,9 +16,18 @@ namespace BookTask
         public Book(string isbn, string title, DateTime date, List<string> authors)
         {
             ISBN = isbn;
-            Title = title;
+
+            if (title == string.Empty || title == null)
+            {
+                throw new ArgumentException("Title cannot be enpty or null");
+            }
+            else
+            {
+                Title = title;
+            }
+
             Date = date;
-            Authors = authors;
+            Authors = (List<string>?)authors.Distinct();
         }
     }
 }

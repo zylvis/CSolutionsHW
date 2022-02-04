@@ -17,7 +17,7 @@ namespace Tracking
         }
 
         public void Track(object obj)
-        {
+        { 
             string fileName = $"{FileName}.json";
             string jsonString = JsonSerializer.Serialize(obj);
             File.WriteAllText(fileName, jsonString);

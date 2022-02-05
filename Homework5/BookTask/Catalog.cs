@@ -10,7 +10,7 @@ namespace BookTask
 {
     internal class Catalog : IEnumerable<Book>
     {
-        public List<Book> Books { get; set; }
+        private List<Book> Books { get; set; }
         public Catalog()
         {
             Books = new List<Book>();

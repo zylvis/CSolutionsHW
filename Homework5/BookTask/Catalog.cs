@@ -18,7 +18,16 @@ namespace BookTask
 
         public void AddBook(Book book)
         {
-            Books.Add(book);
+            Match m1 = Regex.Match(book.ISBN, "[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]");
+            Match m2 = Regex.Match(book.ISBN, "[0-9]{13}");
+            if (m1.Success || m2.Success)
+            {
+                Books.Add(book);
+            }
+            else
+            {
+                throw new Exception("Wrong ISBN number");
+            }
         }
 
         public IEnumerator<Book> GetEnumerator()
@@ -31,7 +40,7 @@ namespace BookTask
             return GetEnumerator();
         }
 
-        public Book GetBookISBN(string isbn)
+        public Book GetBookByISBN(string isbn)
         {
             if (isbn.Length == 13)
             {

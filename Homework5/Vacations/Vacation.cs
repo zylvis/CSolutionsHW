@@ -22,7 +22,6 @@ namespace Vacations
         public double GetAverageDaysOfVacations()
         {
             return SetOfEmployees.Average(x => (x.LastDay - x.FirstDay).Days);
-            
         }
 
         public List<(string name, int averageDays)> GetAveregeDaysOfVacationsEach()
@@ -58,7 +57,6 @@ namespace Vacations
             {
                 count = SetOfEmployees.Where(x => x.FirstDay.Month == i || x.LastDay.Month == i).DistinctBy(e => e.Name).ToList().Count();
                 monthsAndNumber.Add((i, count));
-                count = 0;
             }
             return monthsAndNumber;
         }

@@ -22,7 +22,7 @@ foreach (var item in vacation.GetAveregeDaysOfVacationsEach())
 }
 
 Console.WriteLine("Number of Emploees took vacation by month: ");
-foreach (var item in vacation.GetMonthsWithEmployess())
+foreach (var item in vacation.GetNumberEachMonth())
 {
     Console.WriteLine($"Month: {item.month} - Number of people: {item.empCount}");
 }

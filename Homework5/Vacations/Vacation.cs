@@ -49,7 +49,7 @@ namespace Vacations
             return daysEach.DistinctBy(x => x.Item1).ToList();
         }
 
-        public List<(int month, int empCount)> GetMonthsWithEmployess()
+        public List<(int month, int empCount)> GetNumberEachMonth()
         {
             List<(int, int)> monthsAndNumber = new List<(int, int)>();
             int count = 0;
@@ -76,11 +76,21 @@ namespace Vacations
             {
                 for (var i = emp.FirstDay; i <= emp.LastDay; i = i.AddDays(1))
                 {
-                    allOcupiedDates.Add(i);
+                    if (!allOcupiedDates.Contains(i))
+                    {
+                        allOcupiedDates.Add(i);
+                    }
+
                 }
             }
 
             allOcupiedDates.Sort();
+
+            foreach (var item in allOcupiedDates)
+            {
+                Console.WriteLine(item);
+            }
+          
 
             foreach (var item in allDates)
             {

@@ -9,38 +9,34 @@ namespace SMatrix
 {
     internal class SparseMatrix : IEnumerable<int>
     {
-        private int _rowIndex;
-        private int _colIndex;
-        public int RowIndex
-        {
-            get
-            {
-                if (_rowIndex < 1)
-                {
-                    throw new ArgumentOutOfRangeException("Row Size can't be Zero");
-                }
-                return _rowIndex;
-            }
-        }
-        public int ColumnIndex
-        {
-            get
-            {
-                if (_colIndex < 1)
-                {
-                    throw new ArgumentOutOfRangeException("Column Size can't be Zero");
-                }
-                return _colIndex;
-            }
-        }
+
+        public int RowIndex { get; private set; }
+        public int ColumnIndex { get; private set; }
+
 
         public List<(int row, int column, int value)> Elements { get; set; }
 
 
         public SparseMatrix(int rowIndex, int colIndex)
         {
-            _rowIndex = rowIndex;
-            _colIndex = colIndex;
+            if (rowIndex < 1)
+            {
+                throw new ArgumentOutOfRangeException("Row Size can't be Zero");
+            }
+            else
+            {
+                RowIndex = rowIndex;
+            }
+
+            if (colIndex < 1)
+            {
+                throw new ArgumentOutOfRangeException("Column Size can't be Zero");
+            }
+            else
+            {
+                ColumnIndex = colIndex;
+            }
+
             Elements = new List<(int, int, int)>();
         }
 

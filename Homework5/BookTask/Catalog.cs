@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookTask
 {
-    internal class Catalog : IEnumerable
+    internal class Catalog : IEnumerable<(string, Book)>
     {
         private const string isbnPattern1 = "[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]";
         private const string isbnPattern2 = "[0-9]{13}";
@@ -66,13 +66,35 @@ namespace BookTask
             {
                 throw new ArgumentException("Wrong ISBN number");
             }
+        }
 
+        public string AllBookList()
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var item in Books)
+            {
+
+                StringBuilder authors = new StringBuilder();
+                foreach (var author in item.book.Authors)
+                {
+                    authors.Append($"{author} ");
+                }
+
+                builder.Append($"{item.isbn} {item.book.Title} {authors}");
+                builder.AppendLine();
+            }
+            return builder.ToString();
 
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<(string, Book)> GetEnumerator()
         {
-            return Books.GetEnumerator();
+           return Books.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

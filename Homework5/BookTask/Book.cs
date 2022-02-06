@@ -8,16 +8,12 @@ namespace BookTask
 {
     internal class Book
     {
-        public string ISBN { get; set; }
         public string Title { get; set; }
         public DateTime? Date { get; set; }
         public List<string>? Authors { get; set; }
 
-        public Book(string isbn, string title, DateTime date, List<string> authors)
+        public Book(string title, DateTime date, List<string> authors)
         {
-
-            ISBN = isbn;
-
             if (title == string.Empty || title == null)
             {
                 throw new ArgumentException("Title cannot be enpty or null");

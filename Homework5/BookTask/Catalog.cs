@@ -8,47 +8,59 @@ using System.Threading.Tasks;
 
 namespace BookTask
 {
-    internal class Catalog : IEnumerable<Book>
+    internal class Catalog : IEnumerable
     {
-        private List<Book> Books { get; set; }
+        private const string isbnPattern1 = "[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]";
+        private const string isbnPattern2 = "[0-9]{13}";
+
+        private List<(string isbn, Book book)> Books { get; set; }
         public Catalog()
         {
-            Books = new List<Book>();
+            Books = new List<(string, Book)>();
         }
 
-        public void AddBook(Book book)
+        public void AddBook(string isbn, Book book)
         {
-            Match m1 = Regex.Match(book.ISBN, "[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]");
-            Match m2 = Regex.Match(book.ISBN, "[0-9]{13}");
+            Match m1 = Regex.Match(isbn, isbnPattern1);
+            Match m2 = Regex.Match(isbn, isbnPattern2);
             if (m1.Success || m2.Success)
             {
-                Books.Add(book);
+                Books.Add((isbn, book));
             }
             else
             {
                 throw new Exception("Wrong ISBN number");
             }
+
         }
 
-        public IEnumerator<Book> GetEnumerator()
-        {
-            return Books.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
 
         public Book GetBookByISBN(string isbn)
         {
+
             if (isbn.Length == 13)
             {
-                return Books.FirstOrDefault(x => Regex.Replace(x.ISBN, "-", String.Empty) == isbn);
+                if (Books.FirstOrDefault(x => Regex.Replace(x.isbn, "-", String.Empty) == isbn).isbn == isbn)
+                {
+                    return Books.FirstOrDefault(x => Regex.Replace(x.isbn, "-", String.Empty) == isbn).book;
+                }
+                else
+                {
+                    throw new ArgumentException("No matches.");
+                }
+
             }
             else if (isbn.Length == 17)
             {
-                return Books.FirstOrDefault(x => x.ISBN == isbn);
+                if (Books.FirstOrDefault(x => x.isbn == isbn).isbn == isbn)
+                {
+                    return Books.FirstOrDefault(x => x.isbn == isbn).book;
+                }
+                else
+                {
+                    throw new ArgumentException("No matches.");
+                }
+
             }
             else
             {
@@ -58,5 +70,9 @@ namespace BookTask
 
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            return Books.GetEnumerator();
+        }
     }
 }

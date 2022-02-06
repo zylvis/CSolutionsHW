@@ -13,9 +13,7 @@ namespace SMatrix
         public int RowIndex { get; private set; }
         public int ColumnIndex { get; private set; }
 
-
         public List<(int row, int column, int value)> Elements { get; set; }
-
 
         public SparseMatrix(int rowIndex, int colIndex)
         {

@@ -19,17 +19,10 @@ namespace Vacations
             SetOfEmployees.Add(employee);
         }
 
-        public int GetAverageDaysOfVacations()
+        public double GetAverageDaysOfVacations()
         {
-            int days = 0;
-            TimeSpan date = new TimeSpan(0, 0, 0);
-
-            foreach (Employee item in SetOfEmployees)
-            {
-                date = item.LastDay - item.FirstDay;
-                days = days + date.Days;
-            }
-            return days / SetOfEmployees.Count;
+            return SetOfEmployees.Average(x => (x.LastDay - x.FirstDay).Days);
+            
         }
 
         public List<(string name, int averageDays)> GetAveregeDaysOfVacationsEach()

@@ -15,6 +15,7 @@ namespace BookTask
 
         public Book(string isbn, string title, DateTime date, List<string> authors)
         {
+
             ISBN = isbn;
 
             if (title == string.Empty || title == null)

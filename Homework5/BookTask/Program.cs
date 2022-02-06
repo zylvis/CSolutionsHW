@@ -1,6 +1,6 @@
 ﻿using BookTask;
 
-Book book1 = new Book("Weather", new DateTime(2008, 3, 1), new List<string>() { "Carl"});
+Book book1 = new Book("Weather", new DateTime(2008, 3, 1), new List<string>() { "Carl", "Carl", "Dexter"});
 Book book2 = new Book("Sky", new DateTime(2003, 9, 30), new List<string>() { "Johhn"});
 Book book3 = new Book("Star", new DateTime(2003, 9, 30), new List<string>() { "Kesha" });
 Book book4 = new Book("Thema", new DateTime(2003, 9, 30), new List<string>() { "Pasha" });

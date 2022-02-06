@@ -24,7 +24,7 @@ namespace BookTask
             }
 
             Date = date;
-            Authors = (List<string>)authors.DistinctBy(x => x).ToList();
+            Authors = authors.DistinctBy(x => x).ToList();
         }
     }
 }

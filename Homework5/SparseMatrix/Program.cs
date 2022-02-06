@@ -4,10 +4,11 @@ using SMatrix;
 
 var matrix = new SparseMatrix(4, 5);
 
-matrix.AddItem(0, 0, 1);
-matrix.AddItem(0, 4, 2);
-matrix.AddItem(3, 0, 1);
-matrix.AddItem(3, 4, 4);
+//matrix.AddItem(0, 0, 1);
+matrix[0, 0] = 1;
+matrix[0, 4] = 2;
+matrix[3, 0] = 1;
+matrix[3, 4] = 4;
 
 Console.WriteLine("OverrideToString: " + matrix);
 

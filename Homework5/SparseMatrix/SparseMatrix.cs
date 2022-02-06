@@ -40,10 +40,7 @@ namespace SMatrix
             Elements = new List<(int, int, int)>();
         }
 
-        public void AddItem(int row, int column, int item)
-        {
-            Elements.Add((row, column, item));
-        }
+
         public int this[int row, int column]
         {
             get
@@ -59,9 +56,12 @@ namespace SMatrix
                     return tempList[0];
                 }
 
+            }
+            set
+            {
+                Elements.Add((row, column, value));
 
             }
-            set { }
         }
 
         public override string ToString()

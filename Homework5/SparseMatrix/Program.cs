@@ -4,7 +4,6 @@ using SMatrix;
 
 var matrix = new SparseMatrix(4, 5);
 
-//matrix.AddItem(0, 0, 1);
 matrix[0, 0] = 1;
 matrix[0, 4] = 2;
 matrix[3, 0] = 1;

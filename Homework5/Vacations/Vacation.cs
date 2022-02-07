@@ -86,12 +86,7 @@ namespace Vacations
 
             allOcupiedDates.Sort();
 
-            foreach (var item in allOcupiedDates)
-            {
-                Console.WriteLine(item);
-            }
-          
-
+            
             foreach (var item in allDates)
             {
                 int count = 0;
@@ -116,12 +111,17 @@ namespace Vacations
             int count = 0;
             foreach (var item in SetOfEmployees.GroupBy(x => x.Name).Where(y => y.Count() > 1).ToList())
             {
-                var firstVacation = SetOfEmployees.Where(x => x.Name == item.Key).ToList()[0];
-                var secondVacation = SetOfEmployees.Where(x => x.Name == item.Key).ToList()[1];
+                var vacations = SetOfEmployees.Where(x => x.Name == item.Key).ToList();
 
-                if (firstVacation.LastDay >= secondVacation.FirstDay && firstVacation.FirstDay <= secondVacation.LastDay)
+                for (int i = 0; i < vacations.Count; i++)
                 {
-                    count++;
+                    for (int j = i +1; j < vacations.Count; j++)
+                    {
+                        if (vacations[i].LastDay >= vacations[j].FirstDay && vacations[i].FirstDay <= vacations[j].LastDay)
+                        {
+                            count++;
+                        }
+                    }
                 }
             }
             return count > 0;

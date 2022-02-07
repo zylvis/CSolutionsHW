@@ -20,7 +20,7 @@ namespace Vacations
             }
             else
             {
-                throw new ArgumentOutOfRangeException("first day is not less than second day");
+                throw new ArgumentOutOfRangeException(nameof(lastDay), nameof(firstDay), "first day is not less than second day");
             }
             Name = name;
         }

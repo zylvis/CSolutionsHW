@@ -10,7 +10,7 @@ testClass.FirstName = "John";
 testClass.LastName = "Black";
 testClass.Email = "email@mail";
 
-Logger logger = new Logger("TestClass");
+Logger logger = new("TestClass");
 
 logger.Track(testClass);
 

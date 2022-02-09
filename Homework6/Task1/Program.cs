@@ -22,8 +22,12 @@ object[] attr = tp.GetCustomAttributes(false);
 
 // 3. Print the names of the attributes attached to MyClass
 Console.WriteLine("Attributes of class MyClass:");
-foreach (object o in attr)
+foreach (var item in attr)
 {
-    Console.WriteLine(o.GetType().Name);
+    if (item is TrackingEntityAttribute)
+    {
+        Console.WriteLine(item.GetType().Name);
+    }
+
 }
 Console.ReadKey();

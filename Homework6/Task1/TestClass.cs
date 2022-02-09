@@ -9,17 +9,17 @@ using Tracking;
 
 namespace Task1
 {
-   
-  [JsonObject(MemberSerialization.OptIn)]
-  [Serializable]
-  
-   [TrackingEntity]
+
+    [TrackingEntity]
     public class TestClass
     {
-        [JsonIgnore]
+        [TrackingProperty(PropertyName = "Name")]
         public string FirstName { get; set; }
-      
+
+        [TrackingProperty(PropertyName = "Name")]
         public string LastName { get; set; }
+
+        [TrackingProperty]
         public int Age { get; set; }
         public string Email { get; set; }
 

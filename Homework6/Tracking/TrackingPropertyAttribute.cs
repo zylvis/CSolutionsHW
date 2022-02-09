@@ -10,9 +10,6 @@ namespace Tracking
     public sealed class TrackingPropertyAttribute : Attribute
     {
         public string? PropertyName { get; set; }
-        public TrackingPropertyAttribute()
-        {
 
-        }
     }
 }

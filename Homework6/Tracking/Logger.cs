@@ -21,10 +21,24 @@ namespace Tracking
 
         {
             Dictionary<string, string> objTracked = new Dictionary<string, string>();
+            string fieldName;
             string propertyName;
 
             if (obj.GetType().GetCustomAttribute<TrackingEntityAttribute>() != null)
             {
+                foreach (var fieldInfo in obj.GetType().GetFields()
+              .Where(p => p.GetCustomAttribute<TrackingPropertyAttribute>() != null))
+                {
+                    fieldName = fieldInfo.GetCustomAttribute<TrackingPropertyAttribute>().PropertyName;
+
+                    if (fieldName == null)
+                    {
+                        fieldName = fieldInfo.Name;
+                    }
+
+                    objTracked.Add(fieldName, fieldInfo.GetValue(obj).ToString());
+                }
+
                 foreach (var propertyInfo in obj.GetType().GetProperties()
               .Where(p => p.GetCustomAttribute<TrackingPropertyAttribute>() != null))
                 {

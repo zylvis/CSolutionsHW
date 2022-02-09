@@ -4,7 +4,7 @@ using Tracking;
 
 
 
-TestClass testClass = new TestClass();
+TestClass testClass = new TestClass(5);
 testClass.Age = 20;
 testClass.FirstName = "John";
 testClass.LastName = "Black";

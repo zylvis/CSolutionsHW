@@ -13,7 +13,10 @@ namespace Task1
     [TrackingEntity]
     public class TestClass
     {
-        [TrackingProperty(PropertyName = "Name")]
+        [TrackingProperty(PropertyName ="Field")]
+        private int _context;
+
+        [TrackingProperty]
         public string FirstName { get; set; }
 
         [TrackingProperty(PropertyName = "Name")]
@@ -22,6 +25,11 @@ namespace Task1
         [TrackingProperty]
         public int Age { get; set; }
         public string Email { get; set; }
+
+        public TestClass(int context)
+        {
+            _context = context;
+        }
 
     }
 }

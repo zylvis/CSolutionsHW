@@ -55,7 +55,7 @@ namespace Vacations
             int count = 0;
             for (int i = 1; i <= 12; i++)
             {
-                count = SetOfEmployees.Where(x => x.FirstDay.Month == i || x.LastDay.Month == i).DistinctBy(e => e.Name).ToList().Count();
+                count = SetOfEmployees.Where(x => x.FirstDay.Month <= i && x.LastDay.Month >= i).DistinctBy(e => e.Name).ToList().Count();
                 monthsAndNumber.Add((i, count));
             }
             return monthsAndNumber;
@@ -85,8 +85,7 @@ namespace Vacations
             }
 
             allOcupiedDates.Sort();
-
-            
+                        
             foreach (var item in allDates)
             {
                 int count = 0;

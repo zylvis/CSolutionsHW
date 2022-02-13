@@ -127,7 +127,7 @@ namespace SMatrix
 
         public List<(int, int, int)> GetNoZeroElements()
         {
-            List<(int row, int column, int vale)> list = new List<(int, int, int)>();
+            List<(int row, int column, int value)> list = new List<(int, int, int)>();
 
             foreach (var item in Elements)
             {

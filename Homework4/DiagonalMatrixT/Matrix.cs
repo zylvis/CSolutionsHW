@@ -61,8 +61,8 @@ namespace DiagonalMatrixT
                     if (!DiagonalElements[i].Equals(value))
                     {
                         OldValue = DiagonalElements[i];
-                        OnElementChanged(i, value);
                         DiagonalElements[i] = value;
+                        OnElementChanged(i, value);
 
                     }
                 }

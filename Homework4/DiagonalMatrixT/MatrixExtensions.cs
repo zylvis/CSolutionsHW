@@ -9,12 +9,12 @@ namespace DiagonalMatrixT
 {
     public static class MatrixExtensions
     {
-        public static Matrix<T> Add<T>(this Matrix<T> a, Matrix<T> b, Func< T, T, T> Addition)
+        public static Matrix<T> Add<T>(this Matrix<T> a, Matrix<T> b, Func< T, T, T> addition)
         {
             Matrix<T> matrix = new Matrix<T>(a.Size);
             for (int i = 0; i < a.Size; i++)
             {
-                matrix[i, i] = Addition(a[i, i], b[i, i]);
+                matrix[i, i] = addition(a[i, i], b[i, i]);
             }
             return matrix;  
         }        

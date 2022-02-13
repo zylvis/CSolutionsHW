@@ -12,11 +12,11 @@ namespace DiagonalMatrixT
     {
         public event EventHandler<MatrixEventArgs<T>> ElementChanged;
 
+        private T? oldValue;
         public int Size
         {
             get; private set;
         }
-        public T? OldValue { get; set; }
         private T[] DiagonalElements { get; set; }
 
         public Matrix(int size)
@@ -60,7 +60,7 @@ namespace DiagonalMatrixT
                 {
                     if (!DiagonalElements[i].Equals(value))
                     {
-                        OldValue = DiagonalElements[i];
+                        oldValue = DiagonalElements[i];
                         DiagonalElements[i] = value;
                         OnElementChanged(i, value);
 
@@ -76,7 +76,7 @@ namespace DiagonalMatrixT
 
         protected virtual void OnElementChanged(int index, T newValue)
         {
-            ElementChanged?.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = OldValue });
+            ElementChanged?.Invoke(this, new MatrixEventArgs<T>() { Index = index, NewValue = newValue, OldValue = oldValue });
         }
 
         public IEnumerator<T> GetEnumerator()

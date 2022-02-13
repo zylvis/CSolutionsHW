@@ -54,7 +54,14 @@ namespace SMatrix
             }
             set
             {
-                Elements.Add((row, column), value);
+                if (value == 0)
+                {
+                    throw new ArgumentException("zero value cannot be entered");
+                }
+                else
+                {
+                    Elements.Add((row, column), value);
+                }
             }
         }
 
@@ -118,11 +125,17 @@ namespace SMatrix
             return GetEnumerator();
         }
 
-        //public List<(int, int, int)> GetNoZeroElements()
-        //{
+        public List<(int, int, int)> GetNoZeroElements()
+        {
+            List<(int row, int column, int vale)> list = new List<(int, int, int)>();
 
-        //    return Elements.OrderBy(x => x.Key.column).ToList();
-        //}
+            foreach (var item in Elements)
+            {
+                list.Add((item.Key.row, item.Key.column, item.Value));
+            }
+
+            return list.OrderBy(x => x.column).ToList();
+        }
 
         public int GetCount(int value)
         {

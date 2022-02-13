@@ -21,11 +21,11 @@ foreach (var item in matrix)
 }
 
 Console.WriteLine();
-//Console.WriteLine("Get No zero Elements by columns:");
-//foreach (var item in matrix.GetNoZeroElements())
-//{
-//    Console.Write(item.Item3);
-//}
+Console.WriteLine("Get No zero Elements by columns:");
+foreach (var item in matrix.GetNoZeroElements())
+{
+    Console.Write(item.Item3);
+}
 
 Console.WriteLine();
 

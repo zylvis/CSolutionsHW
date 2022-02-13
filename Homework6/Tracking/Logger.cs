@@ -6,7 +6,7 @@ namespace Tracking
 {
     public class Logger
     {
-        public string FileName { get; set; }
+        public string FileName { get; private set; }
         public Logger(string fileName)
         {
             FileName = fileName;
@@ -22,7 +22,7 @@ namespace Tracking
             if (obj.GetType().GetCustomAttribute<TrackingEntityAttribute>() != null)
             {
                 foreach (var fieldInfo in obj.GetType().GetFields()
-              .Where(p => p.GetCustomAttribute<TrackingPropertyAttribute>() != null))
+                    .Where(p => p.GetCustomAttribute<TrackingPropertyAttribute>() != null))
                 {
                     fieldName = fieldInfo.GetCustomAttribute<TrackingPropertyAttribute>().PropertyName;
 
@@ -35,7 +35,7 @@ namespace Tracking
                 }
 
                 foreach (var propertyInfo in obj.GetType().GetProperties()
-              .Where(p => p.GetCustomAttribute<TrackingPropertyAttribute>() != null))
+                    .Where(p => p.GetCustomAttribute<TrackingPropertyAttribute>() != null))
                 {
                     propertyName = propertyInfo.GetCustomAttribute<TrackingPropertyAttribute>().PropertyName;
 

@@ -13,7 +13,7 @@ namespace SMatrix
         public int RowIndex { get; private set; }
         public int ColumnIndex { get; private set; }
 
-        public List<(int row, int column, int value)> Elements { get; set; }
+        public Dictionary<(int row, int column), int> Elements { get; set; }
 
         public SparseMatrix(int rowIndex, int colIndex)
         {
@@ -35,7 +35,7 @@ namespace SMatrix
                 ColumnIndex = colIndex;
             }
 
-            Elements = new List<(int, int, int)>();
+            Elements = new Dictionary<(int row, int column), int>();
         }
 
 
@@ -43,22 +43,18 @@ namespace SMatrix
         {
             get
             {
-
-                var tempList = Elements.Where(x => x.row == row && x.column == column).Select(x => x.value).ToList();
-                if (tempList.Count < 1)
+                if (Elements.TryGetValue((row, column), out _) == false)
                 {
                     return 0;
                 }
                 else
                 {
-                    return tempList[0];
+                    return Elements[(row, column)];
                 }
-
             }
             set
             {
-                Elements.Add((row, column, value));
-
+                Elements.Add((row, column), value);
             }
         }
 
@@ -74,9 +70,9 @@ namespace SMatrix
                 {
                     foreach (var item in Elements)
                     {
-                        if (item.row == r && item.column == c)
+                        if (item.Key.row == r && item.Key.column == c)
                         {
-                            builder.Append(item.value);
+                            builder.Append(item.Value);
                             isNotZero = true;
                         }
                     }
@@ -102,9 +98,9 @@ namespace SMatrix
                 {
                     foreach (var item in Elements)
                     {
-                        if (item.row == r && item.column == c)
+                        if (item.Key.row == r && item.Key.column == c)
                         {
-                            yield return item.value;
+                            yield return item.Value;
                             isNotZero = true;
                         }
                     }
@@ -122,11 +118,11 @@ namespace SMatrix
             return GetEnumerator();
         }
 
-        public List<(int, int, int)> GetNoZeroElements()
-        {
+        //public List<(int, int, int)> GetNoZeroElements()
+        //{
 
-            return Elements.OrderBy(x => x.column).ToList();
-        }
+        //    return Elements.OrderBy(x => x.Key.column).ToList();
+        //}
 
         public int GetCount(int value)
         {
@@ -134,7 +130,7 @@ namespace SMatrix
             {
                 return RowIndex * ColumnIndex - Elements.Count;
             }
-            return Elements.Count(x => x.value == value);
+            return Elements.Count(x => x.Value == value);
         }
     }
 }

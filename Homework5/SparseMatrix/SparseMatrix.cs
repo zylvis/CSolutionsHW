@@ -43,22 +43,15 @@ namespace SMatrix
         {
             get
             {
-                if (Elements.TryGetValue((row, column), out _) == false)
+                if (Elements.TryGetValue((row, column), out int result))
                 {
-                    return 0;
+                    return result;
                 }
-                else
-                {
-                    return Elements[(row, column)];
-                }
+                return 0;
             }
             set
             {
-                if (value == 0)
-                {
-                    throw new ArgumentException("zero value cannot be entered");
-                }
-                else
+                if (value != 0)
                 {
                     Elements.Add((row, column), value);
                 }

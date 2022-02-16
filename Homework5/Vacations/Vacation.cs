@@ -27,8 +27,7 @@ namespace Vacations
         public IEnumerable<(string name, double averageDays)> GetAveregeDaysOfVacationsEach()
         {
             var result = SetOfEmployees
-                .GroupBy(x => x.Name).Select(gr => (gr.Key, gr
-                .Average(e => (e.LastDay - e.FirstDay).TotalDays)));
+                .GroupBy(x => x.Name).Select(gr => (gr.Key, gr.Average(e => (e.LastDay - e.FirstDay).TotalDays)));
 
             return result;
         }

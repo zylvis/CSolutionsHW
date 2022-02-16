@@ -31,4 +31,3 @@ Console.WriteLine();
 
 Console.WriteLine("GetCount(1): " + matrix.GetCount(1));
 Console.WriteLine("GetCount(0): " + matrix.GetCount(0));
-

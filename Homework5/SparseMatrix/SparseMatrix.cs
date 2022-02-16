@@ -61,26 +61,13 @@ namespace SMatrix
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            bool isNotZero = false; ;
-
+           
             for (int r = 0; r < RowIndex; r++)
             {
                 builder.Append(Environment.NewLine);
                 for (int c = 0; c < ColumnIndex; c++)
                 {
-                    foreach (var item in Elements)
-                    {
-                        if (item.Key.row == r && item.Key.column == c)
-                        {
-                            builder.Append(item.Value);
-                            isNotZero = true;
-                        }
-                    }
-                    if (!isNotZero)
-                    {
-                        builder.Append(0);
-                    }
-                    isNotZero = false;
+                    builder.Append(this[r, c]);
                 }
             }
             return builder.ToString();
@@ -88,27 +75,12 @@ namespace SMatrix
 
         public IEnumerator<int> GetEnumerator()
         {
-
-            bool isNotZero = false; ;
-
             for (int r = 0; r < RowIndex; r++)
             {
 
                 for (int c = 0; c < ColumnIndex; c++)
                 {
-                    foreach (var item in Elements)
-                    {
-                        if (item.Key.row == r && item.Key.column == c)
-                        {
-                            yield return item.Value;
-                            isNotZero = true;
-                        }
-                    }
-                    if (!isNotZero)
-                    {
-                        yield return 0;
-                    }
-                    isNotZero = false;
+                    yield return this[r, c];
                 }
             }
         }

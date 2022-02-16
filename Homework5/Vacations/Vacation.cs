@@ -24,29 +24,13 @@ namespace Vacations
             return SetOfEmployees.Average(x => (x.LastDay - x.FirstDay).Days);
         }
 
-        public List<(string name, int averageDays)> GetAveregeDaysOfVacationsEach()
+        public IEnumerable<(string name, double averageDays)> GetAveregeDaysOfVacationsEach()
         {
-            List<(string, int)> daysEach = new List<(string, int)>();
-            string? name = null;
+            var result = SetOfEmployees
+                .GroupBy(x => x.Name).Select(gr => (gr.Key, gr
+                .Average(e => (e.LastDay - e.FirstDay).TotalDays)));
 
-            foreach (var item in SetOfEmployees)
-            {
-                if (item.Name != name)
-                {
-                    TimeSpan daysSpan = new TimeSpan(0, 0, 0);
-                    int days = 0;
-
-                    foreach (var emp in SetOfEmployees.Where(n => n.Name == item.Name))
-                    {
-                        daysSpan = emp.LastDay - emp.FirstDay;
-                        days = days + daysSpan.Days;
-
-                    }
-                    daysEach.Add((item.Name, days / SetOfEmployees.Where(n => n.Name == item.Name).Count()));
-                }
-                name = item.Name;
-            }
-            return daysEach.DistinctBy(x => x.Item1).ToList();
+            return result;
         }
 
         public List<(int month, int empCount)> GetNumberEachMonth()
@@ -85,7 +69,7 @@ namespace Vacations
             }
 
             allOcupiedDates.Sort();
-                        
+
             foreach (var item in allDates)
             {
                 int count = 0;
@@ -114,7 +98,7 @@ namespace Vacations
 
                 for (int i = 0; i < vacations.Count; i++)
                 {
-                    for (int j = i +1; j < vacations.Count; j++)
+                    for (int j = i + 1; j < vacations.Count; j++)
                     {
                         if (vacations[i].LastDay >= vacations[j].FirstDay && vacations[i].FirstDay <= vacations[j].LastDay)
                         {

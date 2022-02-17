@@ -90,16 +90,11 @@ namespace SMatrix
             return GetEnumerator();
         }
 
-        public List<(int, int, int)> GetNoZeroElements()
+        public IEnumerable<(int, int, int)> GetNoZeroElements()
         {
-            List<(int row, int column, int value)> list = new List<(int, int, int)>();
-
-            foreach (var item in Elements)
-            {
-                list.Add((item.Key.row, item.Key.column, item.Value));
-            }
-
-            return list.OrderBy(x => x.column).ToList();
+            var result = Elements.OrderBy(x => x.Key.column).Select(x => (x.Key.column, x.Key.row, x.Value)).OrderBy(y => y.row);
+          
+            return result;
         }
 
         public int GetCount(int value)

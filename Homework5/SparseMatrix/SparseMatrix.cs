@@ -19,7 +19,7 @@ namespace SMatrix
         {
             if (rowIndex < 1)
             {
-                throw new ArgumentOutOfRangeException("Row Size can't be Zero");
+                throw new ArgumentOutOfRangeException("Row Size can't be Zero or less");
             }
             else
             {
@@ -28,7 +28,7 @@ namespace SMatrix
 
             if (colIndex < 1)
             {
-                throw new ArgumentOutOfRangeException("Column Size can't be Zero");
+                throw new ArgumentOutOfRangeException("Column Size can't be Zero or less");
             }
             else
             {

@@ -13,7 +13,7 @@ namespace SMatrix
         public int RowIndex { get; private set; }
         public int ColumnIndex { get; private set; }
 
-        public Dictionary<(int row, int column), int> Elements { get; set; }
+        private Dictionary<(int row, int column), int> Elements { get; set; }
 
         public SparseMatrix(int rowIndex, int colIndex)
         {

@@ -92,7 +92,7 @@ namespace SMatrix
 
         public IEnumerable<(int, int, int)> GetNoZeroElements()
         {
-            var result = Elements.OrderBy(x => x.Key.column).Select(x => (x.Key.column, x.Key.row, x.Value)).OrderBy(y => y.row);
+            var result = Elements.OrderBy(x => x.Key.column).Select(x => (x.Key.column, x.Key.row, x.Value)).OrderBy(x => x.row);
           
             return result;
         }

@@ -8,7 +8,7 @@ namespace TrainingManagementSystem
         {
             var lecture = new Lecture("some lecture description", "Lecture topic");
             var practicalLesson = new PracticalLesson("some practical description", "task", "solution link --->");
-            var training = new Training("some training description", lecture, practicalLesson);
+            var training = new Training("some training description");
 
             training.Add(lecture);
             training.Add(practicalLesson);

@@ -51,7 +51,6 @@ namespace TrainingManagementSystem
                     count++;
                 }
             }
-
             return count > 0;
         }
 

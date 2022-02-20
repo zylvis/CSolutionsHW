@@ -18,9 +18,8 @@ namespace TrainingManagementSystem
         }
 
         public override PracticalLesson Clone()
-        {
-            PracticalLesson clone = new PracticalLesson(base.DescriptionText, TaskCondition, Solution);
-            return clone;
+        {            
+            return new PracticalLesson(base.DescriptionText, TaskCondition, Solution);
         }
 
     }

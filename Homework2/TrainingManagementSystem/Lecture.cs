@@ -16,9 +16,8 @@ namespace TrainingManagementSystem
         }
         
         public override Lecture Clone()
-        {
-            Lecture clone = new Lecture(base.DescriptionText, Topic);
-            return clone;
+        {            
+            return new Lecture(base.DescriptionText, Topic);
         }
     }
 }

@@ -14,9 +14,7 @@ namespace TrainingManagementSystem
         {
             DescriptionText = descriptionText;
         }
-        public virtual Description Clone()
-        {
-            return this;
-        }
+        public abstract Description Clone();
+    
     }
 }

@@ -58,16 +58,14 @@ namespace TrainingManagementSystem
         {
             Training clone = new Training(this.DescriptionText);
 
-            if (_existingSetElements != 0)
+            for (int i = 0; i <= _existingSetElements; i++)
             {
-                for (int i = 0; i <= _existingSetElements; i++)
+                if (SetOfObjects[i] is PracticalLesson || SetOfObjects[i] is Lecture)
                 {
-                    if (SetOfObjects[i] is PracticalLesson || SetOfObjects[i] is Lecture)
-                    {
-                        clone.SetOfObjects[i] = SetOfObjects[i].Clone();
-                    }
+                    clone.SetOfObjects[i] = SetOfObjects[i].Clone();
                 }
             }
+
             return clone;
         }
 

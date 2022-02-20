@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    abstract class Description
+    public abstract class Description
     {
         public string DescriptionText { get; set; }
        
         public Description(string descriptionText)
         {
             DescriptionText = descriptionText;
+        }
+        public virtual Description Clone()
+        {
+            return this;
         }
     }
 }

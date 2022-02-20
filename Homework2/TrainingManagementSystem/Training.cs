@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    internal class Training : Description
+    public class Training : Description
     {
         private const int MAX_SET_NUMBER = 4;
         private int _existingSetElements;
         public Training(string descriptionText)
             : base(descriptionText)
-        {           
+        {
             _existingSetElements = 0;
         }
 
@@ -53,16 +53,28 @@ namespace TrainingManagementSystem
             }
 
             return count > 0;
-            
+
         }
 
-        public Training Clone()
+        public override Training Clone()
         {
-            Training training = (Training)this.MemberwiseClone();
-           
-            training.SetOfObjects = this.SetOfObjects;
-            
-            return training;
+
+            Training clone = new Training(this.DescriptionText);
+
+            if (_existingSetElements != 0)
+            {
+                for (int i = 0; i <= _existingSetElements; i++)
+                {
+                    if (SetOfObjects[i] is PracticalLesson || SetOfObjects[i] is Lecture)
+                    {
+                        clone.SetOfObjects[i] = SetOfObjects[i].Clone();
+                    }
+                }
+            }
+            return clone;
         }
+
+
     }
 }
+

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    internal class PracticalLesson : Description
+    public class PracticalLesson : Description
     {
         public string TaskCondition { get; set; }
         public string Solution { get; set; }
@@ -15,6 +15,12 @@ namespace TrainingManagementSystem
         {
             TaskCondition = taskCondition;
             Solution = solution;
+        }
+
+        public override PracticalLesson Clone()
+        {
+            PracticalLesson clone = new PracticalLesson(base.DescriptionText, TaskCondition, Solution);
+            return clone;
         }
 
     }

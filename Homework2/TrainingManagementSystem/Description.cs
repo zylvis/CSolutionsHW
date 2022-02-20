@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    public abstract class Description
+    internal abstract class Description
     {
         public string DescriptionText { get; set; }
        

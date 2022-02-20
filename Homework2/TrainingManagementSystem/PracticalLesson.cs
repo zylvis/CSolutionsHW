@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    public class PracticalLesson : Description
+    internal class PracticalLesson : Description
     {
         public string TaskCondition { get; set; }
         public string Solution { get; set; }

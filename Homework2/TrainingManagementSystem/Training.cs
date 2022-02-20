@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    public class Training : Description
+    internal class Training : Description
     {
         private const int MAX_SET_NUMBER = 4;
         private int _existingSetElements;
@@ -53,12 +53,10 @@ namespace TrainingManagementSystem
             }
 
             return count > 0;
-
         }
 
         public override Training Clone()
         {
-
             Training clone = new Training(this.DescriptionText);
 
             if (_existingSetElements != 0)
@@ -73,7 +71,6 @@ namespace TrainingManagementSystem
             }
             return clone;
         }
-
 
     }
 }

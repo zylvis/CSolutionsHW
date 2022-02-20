@@ -18,12 +18,12 @@ namespace TrainingManagementSystem
                 if (item is Lecture)
                 {
                     Lecture temp = (Lecture)item;
-                    Console.WriteLine(temp.Topic);
+                    Console.WriteLine(temp.DescriptionText + ", " + temp.Topic);
                 }
                 if (item is PracticalLesson)
                 {
                     PracticalLesson temp = (PracticalLesson)item;
-                    Console.WriteLine(temp.Solution);
+                    Console.WriteLine(temp.DescriptionText + ", " + temp.TaskCondition + ", " + temp.Solution);
                 }
             }
 
@@ -39,12 +39,12 @@ namespace TrainingManagementSystem
                 if (item is Lecture)
                 {
                     Lecture temp = (Lecture)item;
-                    Console.WriteLine(temp.Topic);
+                    Console.WriteLine(temp.DescriptionText + ", " + temp.Topic);
                 }
                 if (item is PracticalLesson)
                 {
                     PracticalLesson temp = (PracticalLesson)item;
-                    Console.WriteLine(temp.Solution);
+                    Console.WriteLine(temp.DescriptionText + ", " + temp.TaskCondition + ", " + temp.Solution);
                 }
             }
         }

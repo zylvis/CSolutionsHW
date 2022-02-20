@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingManagementSystem
 {
-    public class Lecture : Description
+    internal class Lecture : Description
     {
         public string Topic { get; set; }
 
